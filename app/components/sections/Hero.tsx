@@ -2,10 +2,12 @@
 
 import Image from "next/image"
 import AnimatedText from "../common/AnimatedText"
+import FloatingElements from "../common/FloatingElements"
 
 export default function Hero() {
   return (
     <section id="home" className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+      <FloatingElements />
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
         <AnimatedText className="flex flex-col items-center sm:items-start gap-4">
           <Image
@@ -16,7 +18,7 @@ export default function Hero() {
             height={120}
             priority
           />
-          <h1 className="text-4xl font-bold">Zhiyuan Song</h1>
+          <h1 className="text-4xl font-bold">👋 Hi there, I'm Zhiyuan Song</h1>
           <p className="text-lg text-foreground/80 font-[family-name:var(--font-geist-mono)]">
             Full Stack Developer
           </p>
@@ -26,7 +28,7 @@ export default function Hero() {
           className="max-w-2xl text-center sm:text-left"
         >
           <p className="text-foreground/80 leading-relaxed">
-            这里是你的个人简介。描述你的专业背景、兴趣爱好和目标。保持简洁明了，突出重点。
+            UCSC Computer Science Junior | Aspiring SDE Intern building robust Full Stack solutions.
           </p>
         </AnimatedText>
 
@@ -53,7 +55,7 @@ export default function Hero() {
             href="/resume.pdf"
             target="_blank"
           >
-            查看简历
+            View Resume
           </a>
         </AnimatedText>
       </main>
@@ -63,29 +65,33 @@ export default function Hero() {
       >
         <a
           className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="mailto:your@email.com"
+          href="mailto:songzhiyuan98@gmail.com"
         >
           <Image
             aria-hidden
+            className="dark:invert"
             src="/mail.svg"
             alt="Email"
             width={16}
             height={16}
           />
-          联系我
+          Email Me
         </a>
         <a
           className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="/blog"
+          href="https://www.linkedin.com/in/zhiyuan-song-761651217/"
+          target="_blank"
+          rel="noopener noreferrer"
         >
           <Image
             aria-hidden
+            className="dark:invert"
             src="/linkedin.svg"
-            alt="Blog"
+            alt="LinkedIn"
             width={16}
             height={16}
           />
-          领英
+          LinkedIn
         </a>
         <a
           className="flex items-center gap-2 hover:underline hover:underline-offset-4"
@@ -93,12 +99,13 @@ export default function Hero() {
         >
           <Image
             aria-hidden
+            className="dark:invert"
             src="/folder.svg"
             alt="Projects"
             width={16}
             height={16}
           />
-          项目展示
+          Projects
         </a>
       </AnimatedText>
     </section>
