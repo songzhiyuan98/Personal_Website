@@ -53,10 +53,10 @@ function generatePosition(side: 'left' | 'right', existingItems: { x: number, y:
 
   do {
     y = Math.random() * 90 + 10
-    if (y < 20) {
+    if (y < 15) {
       x = Math.random() * 100
     } else {
-      x = side === 'left' ? Math.random() * 15 : 75 + Math.random() * 25
+      x = side === 'left' ? Math.random() * 13 : 82 + Math.random() * 18
     }
     attempts++
   } while (checkOverlap({ x, y }, existingItems) && attempts < maxAttempts)

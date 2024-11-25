@@ -18,7 +18,7 @@ export default function Hero() {
             height={120}
             priority
           />
-          <h1 className="text-4xl font-bold">👋 Hi there, I'm Zhiyuan Song</h1>
+          <h1 className="text-4xl font-bold">Zhiyuan Song</h1>
           <p className="text-lg text-foreground/80 font-[family-name:var(--font-geist-mono)]">
             Full Stack Developer
           </p>

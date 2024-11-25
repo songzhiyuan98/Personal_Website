@@ -10,11 +10,12 @@ export default function Home() {
     <>
       <Navbar />
       <main>
-        <Hero />
+        <Hero />    
         <About />
+        
         <section id="education" className="relative py-20">
-          <div className="container mx-auto">
-            <h2 className="text-3xl font-bold mb-12 text-center">Education</h2>
+          <div className="w-[90%] lg:w-[85%] mx-auto">
+            <h1 className="text-4xl font-bold mb-12 text-center">Education</h1>
             <CourseTimeline />
           </div>
         </section>
