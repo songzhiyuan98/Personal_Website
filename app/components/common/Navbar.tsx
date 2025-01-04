@@ -5,8 +5,10 @@ import { useState, useEffect, useRef } from "react"
 const navItems = [
   { name: "Home", href: "#home" },
   { name: "About", href: "#about" },
-  { name: "Education", href: "#education" },
-  { name: "Projects", href: "#projects" }
+  { name: "Skills", href: "#skills"},
+  { name: "Experience", href: "#experience"},
+  { name: "Projects", href: "#projects" },
+  { name: "Education", href: "#education" }
 ]
 
 export default function Navbar() {
