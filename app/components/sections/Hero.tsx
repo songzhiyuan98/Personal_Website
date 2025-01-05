@@ -33,10 +33,17 @@ export default function Hero() {
         </AnimatedText>
 
         <AnimatedText 
-          className="flex gap-4 items-center flex-col sm:flex-row"
+          className="flex gap-3 sm:gap-4 items-center flex-row"
         >
           <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
+            className="
+              rounded-full border border-solid border-black/[.08] dark:border-white/[.145] 
+              transition-colors flex items-center justify-center 
+              hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] 
+              text-xs sm:text-base                    // 更小的字体
+              h-9 sm:h-12                             // 更小的高度
+              px-3 sm:px-5                            // 更小的水平内边距
+            "
             href="https://github.com/songzhiyuan98"
             target="_blank"
             rel="noopener noreferrer"
@@ -45,13 +52,23 @@ export default function Hero() {
               className="invert dark:invert-0 mr-2"
               src="/github.svg"
               alt="GitHub"
-              width={20}
-              height={20}
+              width={16}                              // 更小的图标
+              height={16}
+              sizes="(max-width: 640px) 16px, 20px"  // 响应式图标大小
             />
             GitHub
           </a>
           <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
+            className="
+              rounded-full border border-solid border-black/[.08] dark:border-white/[.145] 
+              transition-colors flex items-center justify-center 
+              hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] 
+              hover:border-transparent 
+              text-xs sm:text-base                    // 更小的字体
+              h-9 sm:h-12                             // 更小的高度
+              px-3 sm:px-5                            // 更小的水平内边距
+              min-w-[90px] sm:min-w-44               // 更小的最小宽度
+            "
             href="/resume.pdf"
             target="_blank"
           >

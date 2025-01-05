@@ -83,7 +83,7 @@ export default function Navbar() {
               <a
                 href={item.href}
                 className={`
-                  text-xs sm:text-sm /* 移动端字体大小xs(12px), sm(640px)以上为sm(14px) */
+                  text-xs sm:text-sm /* 移动端字体大小xs(12px), sm(640px)以上为base(16px) */
                   font-medium whitespace-nowrap transition-colors
                   ${activeSection === item.href.slice(1)
                     ? "text-foreground"
