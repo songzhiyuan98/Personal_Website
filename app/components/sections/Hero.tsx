@@ -32,17 +32,15 @@ export default function Hero() {
           </p>
         </AnimatedText>
 
-        <AnimatedText 
-          className="flex gap-3 sm:gap-4 items-center flex-row"
-        >
+        <AnimatedText className="flex gap-4 items-center flex-row">
           <a
             className="
               rounded-full border border-solid border-black/[.08] dark:border-white/[.145] 
               transition-colors flex items-center justify-center 
               hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] 
-              text-xs sm:text-base                    // 更小的字体
-              h-9 sm:h-12                             // 更小的高度
-              px-3 sm:px-5                            // 更小的水平内边距
+              h-12                                    // 固定高度
+              px-5                                   // 固定内边距
+              text-base                              // 固定字体大小
             "
             href="https://github.com/songzhiyuan98"
             target="_blank"
@@ -52,9 +50,9 @@ export default function Hero() {
               className="invert dark:invert-0 mr-2"
               src="/github.svg"
               alt="GitHub"
-              width={16}                              // 更小的图标
-              height={16}
-              sizes="(max-width: 640px) 16px, 20px"  // 响应式图标大小
+              width={20}                             // 固定图标大小
+              height={20}
+              sizes="20px"                          // 固定尺寸
             />
             GitHub
           </a>
@@ -64,10 +62,10 @@ export default function Hero() {
               transition-colors flex items-center justify-center 
               hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] 
               hover:border-transparent 
-              text-xs sm:text-base                    // 更小的字体
-              h-9 sm:h-12                             // 更小的高度
-              px-3 sm:px-5                            // 更小的水平内边距
-              min-w-[90px] sm:min-w-44               // 更小的最小宽度
+              h-12                                   // 固定高度
+              px-5                                   // 固定内边距
+              text-base                              // 固定字体大小
+              min-w-44                              // 固定最小宽度
             "
             href="/resume.pdf"
             target="_blank"
