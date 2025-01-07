@@ -5,7 +5,8 @@ import About from "./components/sections/About"
 import CourseTimeline from "./components/education/CourseTimeline"
 import Navbar from "./components/common/Navbar"
 import MySkills from './components/sections/MySkills'
-
+import Experience from './components/sections/Experience'
+import { Box } from '@mui/material'
 export default function Home() {
   return (
     <>
@@ -14,12 +15,18 @@ export default function Home() {
         <Hero />    
         <About />
         <MySkills />
+        <Experience />
         
-        <section id="education" className="relative py-20">
-          <div className="w-[90%] lg:w-[85%] mx-auto">
+        <section id="education" className="relative">
+          <Box sx={{ 
+            display: 'flex', 
+            flexDirection: 'column', 
+            alignItems: 'center',
+            p: 4,
+          }}>
             <h1 className="text-4xl font-bold mb-12 text-center">Education</h1>
             <CourseTimeline />
-          </div>
+          </Box>
         </section>
       </main>
     </>
