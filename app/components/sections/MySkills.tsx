@@ -69,10 +69,7 @@ export default function MySkills() {
       <div className="container mx-auto">
         <AnimatedText>
           <h1 className="
-            text-3xl sm:text-4xl /* 移动端字体大小3xl(30px), sm(640px)以上为4xl(36px) */
-            font-bold 
-            mb-8 sm:mb-12 /* 移动端下边距8, sm(640px)以上为12 */      
-            text-center
+            text-3xl sm:text-4xl font-bold mb-8 sm:mb-12 text-center
           ">
             Technical Skills
           </h1>

@@ -59,7 +59,7 @@ export default function Projects() {
         />
 
         <AnimatedText>
-          <h1 className="text-4xl font-bold mb-12 text-center relative z-10">Projects</h1>
+          <h1 className="text-3xl sm:text-4xl font-bold mb-12 text-center relative z-10">Projects</h1>
         </AnimatedText>
         
         <Grid container spacing={4} sx={{ position: 'relative', zIndex: 1, maxWidth: 'lg' }}>
@@ -103,15 +103,29 @@ export default function Projects() {
                       />
                     </Box>
 
-                    <Typography variant="h5" sx={{ mb: 1, fontWeight: 600 }}>
+                    <Typography variant="h5" sx={{ 
+                      mb: 1, 
+                      fontWeight: 600,
+                      fontSize: { xs: '1.125rem', sm: '1.25rem', md: '1.5rem' }
+                    }}>
                       {project.title}
                     </Typography>
 
-                    <Typography variant="body2" sx={{ opacity: 0.6, fontStyle: 'italic', mb: 2 }}>
+                    <Typography variant="body2" sx={{ 
+                      opacity: 0.6, 
+                      fontStyle: 'italic', 
+                      mb: 2,
+                      fontSize: { xs: '0.75rem', sm: '0.875rem' }
+                    }}>
                       {project.period}
                     </Typography>
 
-                    <Typography variant="body1" sx={{ opacity: 0.8, mb: 3, lineHeight: 1.6 }}>
+                    <Typography variant="body1" sx={{ 
+                      opacity: 0.8, 
+                      mb: 3, 
+                      lineHeight: 1.6,
+                      fontSize: { xs: '0.875rem', sm: '1rem' }
+                    }}>
                       {project.description}
                     </Typography>
 
@@ -120,7 +134,9 @@ export default function Projects() {
                         <span 
                           key={skill}
                           className="
-                            px-3 py-1 text-sm rounded-full
+                            px-3 py-1 
+                            text-xs sm:text-sm
+                            rounded-full
                             bg-white/5 backdrop-blur-sm
                             border border-white/10
                             opacity-70

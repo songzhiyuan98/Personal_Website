@@ -59,7 +59,7 @@ export default function Experience() {
         />
 
         <AnimatedText>
-          <h1 className="text-4xl font-bold mb-16 text-center relative z-10">Experience</h1>
+          <h1 className="text-3xl sm:text-4xl font-bold mb-16 text-center relative z-10">Experience</h1>
         </AnimatedText>
         
         <Grid container spacing={4} sx={{ position: 'relative', zIndex: 1, maxWidth: 'lg' }}>

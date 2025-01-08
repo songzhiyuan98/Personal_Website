@@ -32,7 +32,9 @@ export default function Hero() {
           </p>
         </AnimatedText>
 
-        <AnimatedText className="flex gap-4 items-center flex-row">
+        <AnimatedText 
+          className="flex gap-4 items-center flex-row"
+        >
           <a
             className="
               rounded-full border border-solid border-black/[.08] dark:border-white/[.145] 
