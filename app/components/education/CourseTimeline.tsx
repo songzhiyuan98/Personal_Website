@@ -2,6 +2,7 @@
 
 import AnimatedText from "../common/AnimatedText"
 import { motion } from "framer-motion"
+import GradientBackground from "../common/GradientBackground"
 
 interface CourseItem {
   date: string
@@ -80,22 +81,57 @@ const courses: CourseItem[] = [
 export default function CourseTimeline() {
   return (
     <div className="w-full relative">
-      <div className="absolute left-1/2 top-0 w-[2px] h-full bg-neutral-200 dark:bg-neutral-800" />
+      <GradientBackground 
+        sectionId="education"
+        gradientColors={{
+          start: '#34D399',  // 浅绿色
+          end: '#10B981'     // 深绿色
+        }}
+      />
+      
+      <div className="absolute left-1/2 top-0 w-[2px] h-full bg-neutral-200 dark:bg-neutral-800 z-10" />
       
       {courses.map((course, index) => (
         <AnimatedText key={index}>
-          <div className={`flex items-center gap-4 sm:gap-6 md:gap-8 mb-12 ${
-            index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'
-          }`}>
+          <div className={`
+            flex items-center gap-2 sm:gap-6 md:gap-8 mb-8 sm:mb-12 
+            ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}
+            relative z-10
+          `}>
             <div className="flex-1 text-center">
-              <h3 className="text-base sm:text-lg md:text-xl font-bold mb-2">{course.title}</h3>
-              <p className="text-sm sm:text-base text-foreground/60 mb-1">{course.date}</p>
-              <p className="text-sm sm:text-base text-foreground/80">{course.description}</p>
+              <h3 className="
+                text-sm sm:text-base md:text-lg    /* 移动端更小的字体 */
+                font-semibold sm:font-bold         /* 移动端稍微细一点的字重 */
+                mb-1 sm:mb-2                       /* 减小移动端的下边距 */
+                leading-tight                      /* 更紧凑的行高 */
+              ">
+                {course.title}
+              </h3>
+              <p className="
+                text-xs sm:text-sm                 /* 更小的日期字体 */
+                text-foreground/60 
+                mb-1
+              ">
+                {course.date}
+              </p>
+              <p className="
+                text-xs sm:text-sm                 /* 更小的描述字体 */
+                text-foreground/80 
+                leading-relaxed
+              ">
+                {course.description}
+              </p>
             </div>
             
-            <div className="relative z-10">
+            <div className="relative z-20">
               <motion.div 
-                className="w-3 h-3 sm:w-4 sm:h-4 bg-black dark:bg-white rounded-full"
+                className="
+                  w-2 h-2                         /* 更小的圆点 */
+                  sm:w-3 sm:h-3 
+                  md:w-4 md:h-4 
+                  bg-black dark:bg-white 
+                  rounded-full
+                "
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{

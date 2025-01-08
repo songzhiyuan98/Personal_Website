@@ -36,33 +36,61 @@ export default function GradientBackground({ sectionId, gradientColors }: Props)
 
   return (
     <>
-      {/* 右上角渐变背景圆 */}
       <Box
         sx={{
           position: 'fixed',
-          width: '500px',
-          height: '500px',
+          width: {
+            xs: '200px',
+            sm: '500px'
+          },
+          height: {
+            xs: '200px',
+            sm: '500px'
+          },
           borderRadius: '50%',
           background: `linear-gradient(135deg, ${gradientColors.start}, ${gradientColors.end})`,
-          filter: 'blur(80px)',
-          top: '-100px',
-          right: '-100px',
+          filter: {
+            xs: 'blur(30px)',
+            sm: 'blur(80px)'
+          },
+          top: {
+            xs: '-30px',
+            sm: '-100px'
+          },
+          right: {
+            xs: '-30px',
+            sm: '-100px'
+          },
           opacity: isVisible ? 0.3 : 0,
           transition: 'opacity 0.8s ease-in-out',
           zIndex: 1,
         }}
       />
-      {/* 左下角渐变背景圆 */}
       <Box
         sx={{
           position: 'fixed',
-          width: '500px',
-          height: '500px',
+          width: {
+            xs: '200px',
+            sm: '500px'
+          },
+          height: {
+            xs: '200px',
+            sm: '500px'
+          },
           borderRadius: '50%',
           background: `linear-gradient(135deg, ${gradientColors.end}, ${gradientColors.start})`,
-          filter: 'blur(80px)',
-          bottom: '-100px',
-          left: '-100px',
+          filter: {
+            xs: 'blur(30px)',
+            sm: 'blur(80px)'
+          },
+          bottom: {
+            xs: '-30px',
+            sm: '-100px'
+          },
+          left: {
+            xs: '-30px',
+            sm: '-100px'
+          },
           opacity: isVisible ? 0.3 : 0,
           transition: 'opacity 0.8s ease-in-out',
           zIndex: 1,

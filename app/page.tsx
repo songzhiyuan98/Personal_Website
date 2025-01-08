@@ -7,6 +7,7 @@ import Navbar from "./components/common/Navbar"
 import MySkills from './components/sections/MySkills'
 import Experience from './components/sections/Experience'
 import { Box } from '@mui/material'
+import Projects from './components/sections/Projects'
 export default function Home() {
   return (
     <>
@@ -16,6 +17,7 @@ export default function Home() {
         <About />
         <MySkills />
         <Experience />
+        <Projects />
         
         <section id="education" className="relative">
           <Box sx={{ 
