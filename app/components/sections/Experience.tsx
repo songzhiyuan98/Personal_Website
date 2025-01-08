@@ -2,7 +2,8 @@
 
 import AnimatedText from '../common/AnimatedText'
 import Image from 'next/image'
-import { Typography, Container, Box, Card, CardContent, Stack, Chip, Button } from '@mui/material'
+import { Typography, Container, Box, Card, CardContent, Grid } from '@mui/material'
+import GradientBackground from '../common/GradientBackground'
 
 type Experience = {
   id: number
@@ -26,7 +27,7 @@ const experiences: Experience[] = [
   },
   {
     id: 2,
-    title: "Software Development Engineer Intern",
+    title: "Software Development Engineer",
     company: "Amazon",
     period: "2023.06 - 2023.09", 
     logo: "/companyicon/3CCA.jpg",
@@ -37,76 +38,121 @@ const experiences: Experience[] = [
 
 export default function Experience() {
   return (
-    <Container id="experience" maxWidth="md" component="section">
+    <Container id="experience" maxWidth="xl" component="section">
       <Box sx={{ 
+        minHeight: '100vh',
         display: 'flex', 
         flexDirection: 'column', 
         alignItems: 'center',
-        p: 4,
+        justifyContent: 'center',
+        py: { xs: 8, md: 12 },
+        px: { xs: 2, sm: 4, md: 8 },
+        position: 'relative',
+        overflow: 'hidden',
       }}>
+        <GradientBackground 
+          sectionId="experience"
+          gradientColors={{
+            start: '#A78BFA',
+            end: '#8B5CF6'
+          }}
+        />
+
         <AnimatedText>
-          <h1 className="text-4xl font-bold mb-12 text-center">Experience</h1>
+          <h1 className="text-4xl font-bold mb-16 text-center relative z-10">Experience</h1>
         </AnimatedText>
         
-        <Stack spacing={4} width="100%" maxWidth="600px" alignItems="center">
+        <Grid container spacing={4} sx={{ position: 'relative', zIndex: 1, maxWidth: 'lg' }}>
           {experiences.map((exp) => (
-            <AnimatedText key={exp.id} className="w-full">
-              <Card 
-                elevation={0}
-                sx={{
-                  bgcolor: 'transparent',
-                  width: '100%',
-                  '& .MuiCardContent-root': {
-                    px: 0
-                  }
-                }}
-              >
-                <CardContent>
-                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 1 }}>
-                    <Box 
-                      sx={{ 
-                        p: 1.5,
-                        borderRadius: 2,
-                        bgcolor: 'grey.100',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center'
-                      }}
-                    >
-                      <Image 
+            <Grid item xs={12} md={6} key={exp.id}>
+              <AnimatedText>
+                <Card 
+                  elevation={0}
+                  sx={{
+                    height: '100%',
+                    background: theme => theme.palette.mode === 'dark' 
+                      ? 'rgba(0, 0, 0, 0.2)' 
+                      : 'rgba(255, 255, 255, 0.1)',
+                    color: theme => theme.palette.mode === 'dark'
+                      ? '#fff'
+                      : '#000',
+                    backdropFilter: 'blur(20px)',
+                    borderRadius: 4,
+                    border: theme => `1px solid ${
+                      theme.palette.mode === 'dark' 
+                        ? 'rgba(255, 255, 255, 0.1)' 
+                        : 'rgba(255, 255, 255, 0.2)'
+                    }`,
+                    transition: 'all 0.3s ease',
+                    '&:hover': {
+                      transform: 'translateY(-8px)',
+                      background: theme => theme.palette.mode === 'dark'
+                        ? 'rgba(0, 0, 0, 0.3)'
+                        : 'rgba(255, 255, 255, 0.15)',
+                      boxShadow: theme => theme.palette.mode === 'dark'
+                        ? '0 20px 40px rgba(0, 0, 0, 0.3)'
+                        : '0 20px 40px rgba(0, 0, 0, 0.1)',
+                    }
+                  }}
+                >
+                  <CardContent sx={{ p: 4 }}>
+                    <Box sx={{ 
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: 2,
+                      mb: 3
+                    }}>
+                      <Image
                         src={exp.logo}
-                        alt={exp.company}
-                        width={40}
-                        height={40}
-                        style={{ objectFit: 'contain' }}
+                        alt={`${exp.company} logo`}
+                        width={48}
+                        height={48}
+                        style={{
+                          objectFit: 'contain',
+                          borderRadius: '8px'
+                        }}
                       />
+                      <div>
+                        <Typography variant="h5" sx={{ mb: 1, fontWeight: 600 }}>
+                          {exp.title}
+                        </Typography>
+                        <Typography variant="body1" sx={{ opacity: 0.7, fontWeight: 500 }}>
+                          {exp.company}
+                        </Typography>
+                      </div>
                     </Box>
-                    <Typography variant="h6" component="h2" fontWeight="bold">
-                      {exp.title}
-                    </Typography>
-                  </Box>
 
-                  <Box sx={{ display: 'flex', gap: 2, mb: 2 }}>
-                    <Typography variant="body2" color="text.secondary">
-                      {exp.company}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
+                    <Typography variant="body2" sx={{ opacity: 0.6, fontStyle: 'italic', mb: 2 }}>
                       {exp.period}
                     </Typography>
-                  </Box>
 
-                  <Typography 
-                    variant="body1" 
-                    paragraph 
-                    sx={{ mb: 2 }}
-                  >
-                    {exp.description}
-                  </Typography>
-                </CardContent>
-              </Card>
-            </AnimatedText>
+                    <Typography variant="body1" sx={{ opacity: 0.8, mb: 3, lineHeight: 1.6 }}>
+                      {exp.description}
+                    </Typography>
+
+                    <div className="flex flex-wrap gap-2">
+                      {exp.skills.map((skill) => (
+                        <span 
+                          key={skill}
+                          className="
+                            px-3 py-1 text-sm rounded-full
+                            bg-white/5 backdrop-blur-sm
+                            border border-white/10
+                            opacity-70
+                            transition-colors
+                            hover:bg-white/10
+                          "
+                        >
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              </AnimatedText>
+            </Grid>
           ))}
-        </Stack>
+        </Grid>
       </Box>
     </Container>
   )
