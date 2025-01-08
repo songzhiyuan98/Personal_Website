@@ -8,6 +8,7 @@ import MySkills from './components/sections/MySkills'
 import Experience from './components/sections/Experience'
 import { Box } from '@mui/material'
 import Projects from './components/sections/Projects'
+import Gallery from './components/sections/Gallery'
 export default function Home() {
   return (
     <>
@@ -18,7 +19,6 @@ export default function Home() {
         <MySkills />
         <Experience />
         <Projects />
-        
         <section id="education" className="relative">
           <Box sx={{ 
             display: 'flex', 
@@ -30,6 +30,7 @@ export default function Home() {
             <CourseTimeline />
           </Box>
         </section>
+        <Gallery />
       </main>
     </>
   )
