@@ -40,25 +40,25 @@ export default function GradientBackground({ sectionId, gradientColors }: Props)
         sx={{
           position: 'fixed',
           width: {
-            xs: '200px',
+            xs: '300px',
             sm: '500px'
           },
           height: {
-            xs: '200px',
+            xs: '300px',
             sm: '500px'
           },
           borderRadius: '50%',
           background: `linear-gradient(135deg, ${gradientColors.start}, ${gradientColors.end})`,
           filter: {
-            xs: 'blur(30px)',
+            xs: 'blur(40px)',
             sm: 'blur(80px)'
           },
           top: {
-            xs: '-30px',
+            xs: '-40px',
             sm: '-100px'
           },
           right: {
-            xs: '-30px',
+            xs: '-40px',
             sm: '-100px'
           },
           opacity: isVisible ? 0.3 : 0,
@@ -70,25 +70,25 @@ export default function GradientBackground({ sectionId, gradientColors }: Props)
         sx={{
           position: 'fixed',
           width: {
-            xs: '200px',
+            xs: '300px',
             sm: '500px'
           },
           height: {
-            xs: '200px',
+            xs: '300px',
             sm: '500px'
           },
           borderRadius: '50%',
           background: `linear-gradient(135deg, ${gradientColors.end}, ${gradientColors.start})`,
           filter: {
-            xs: 'blur(30px)',
+            xs: 'blur(40px)',
             sm: 'blur(80px)'
           },
           bottom: {
-            xs: '-30px',
+            xs: '-40px',
             sm: '-100px'
           },
           left: {
-            xs: '-30px',
+            xs: '-40px',
             sm: '-100px'
           },
           opacity: isVisible ? 0.3 : 0,

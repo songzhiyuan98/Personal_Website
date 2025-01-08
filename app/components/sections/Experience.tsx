@@ -95,12 +95,12 @@ export default function Experience() {
                     }
                   }}
                 >
-                  <CardContent sx={{ p: 4 }}>
+                  <CardContent sx={{ p: { xs: 2, sm: 3, md: 4 } }}>
                     <Box sx={{ 
                       display: 'flex',
                       alignItems: 'center',
-                      gap: 2,
-                      mb: 3
+                      gap: { xs: 1, sm: 2 },
+                      mb: { xs: 2, sm: 3 }
                     }}>
                       <Image
                         src={exp.logo}
@@ -109,24 +109,56 @@ export default function Experience() {
                         height={48}
                         style={{
                           objectFit: 'contain',
-                          borderRadius: '8px'
+                          borderRadius: '8px',
+                          width: '40px',
+                          height: '40px'
                         }}
                       />
                       <div>
-                        <Typography variant="h5" sx={{ mb: 1, fontWeight: 600 }}>
+                        <Typography 
+                          variant="h5" 
+                          sx={{ 
+                            mb: 0.5,
+                            fontSize: { xs: '1rem', sm: '1.25rem', md: '1.5rem' },
+                            fontWeight: { xs: 500, sm: 600 }
+                          }}
+                        >
                           {exp.title}
                         </Typography>
-                        <Typography variant="body1" sx={{ opacity: 0.7, fontWeight: 500 }}>
+                        <Typography 
+                          variant="body1" 
+                          sx={{ 
+                            opacity: 0.7, 
+                            fontWeight: 500,
+                            fontSize: { xs: '0.875rem', sm: '1rem' }
+                          }}
+                        >
                           {exp.company}
                         </Typography>
                       </div>
                     </Box>
 
-                    <Typography variant="body2" sx={{ opacity: 0.6, fontStyle: 'italic', mb: 2 }}>
+                    <Typography 
+                      variant="body2" 
+                      sx={{ 
+                        opacity: 0.6, 
+                        fontStyle: 'italic', 
+                        mb: { xs: 1, sm: 2 },
+                        fontSize: { xs: '0.75rem', sm: '0.875rem' }
+                      }}
+                    >
                       {exp.period}
                     </Typography>
 
-                    <Typography variant="body1" sx={{ opacity: 0.8, mb: 3, lineHeight: 1.6 }}>
+                    <Typography 
+                      variant="body1" 
+                      sx={{ 
+                        opacity: 0.8, 
+                        mb: { xs: 2, sm: 3 }, 
+                        lineHeight: 1.6,
+                        fontSize: { xs: '0.875rem', sm: '1rem' }
+                      }}
+                    >
                       {exp.description}
                     </Typography>
 
