@@ -7,8 +7,8 @@ const navItems = [
   { name: "Home", href: "#home" },
   { name: "About", href: "#about" },
   { name: "Skills", href: "#skills"},
-  { name: "Research", href: "#research"},
-  { name: "Teaching", href: "#teaching"},
+  { name: "Experience", href: "#experience"},
+  { name: "Projects", href: "#projects"},
   { name: "Education", href: "#education" },
   { name: "Gallery", href: "#gallery" }
 ]
