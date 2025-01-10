@@ -1,6 +1,5 @@
 'use client'
 
-import { Modal, Card, CardContent, Typography, Box, Grid } from '@mui/material'
 import Image from 'next/image'
 import { useEffect } from 'react'
 
@@ -20,11 +19,6 @@ type ExperienceDetail = {
   techStack: {
     category: string
     items: string[]
-  }[]
-  achievements: {
-    metric: string
-    value: string
-    change: number
   }[]
 }
 
