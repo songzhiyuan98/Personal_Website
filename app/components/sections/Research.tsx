@@ -100,11 +100,11 @@ export default function Research() {
                 .map((paper) => (
                   <AnimatedText key={paper.id}>
                     <div className="
-                      flex items-center justify-between
+                      flex flex-col sm:flex-row sm:items-center sm:justify-between
                       pb-6 border-b border-black/10 dark:border-white/10
                     ">
-                      <div className="space-y-3">
-                        <div className="flex flex-wrap items-center gap-2 text-base sm:text-lg">
+                      <div className="space-y-2 sm:space-y-0">
+                        <div className="flex flex-wrap items-center gap-2 text-sm sm:text-lg">
                           <span className="font-medium">{paper.title}</span>
                           {paper.authors && (
                             <span className="opacity-70">({paper.authors})</span>
@@ -135,28 +135,15 @@ export default function Research() {
                         </div>
 
                         {paper.journal && (
-                          <p className="opacity-80 text-sm sm:text-base italic">
+                          <p className="opacity-80 text-xs sm:text-base italic">
                             {paper.journal}
                           </p>
                         )}
 
                         {paper.description && (
-                          <p className="opacity-70 text-sm sm:text-base">
+                          <p className="opacity-70 text-xs sm:text-base">
                             {paper.description}
                           </p>
-                        )}
-
-                        {paper.citations && (
-                          <div className="mt-4">
-                            <p className="font-medium text-sm sm:text-base mb-2">
-                              Cited by:
-                            </p>
-                            {paper.citations.map((citation, index) => (
-                              <p key={index} className="opacity-70 text-sm sm:text-base">
-                                {citation}
-                              </p>
-                            ))}
-                          </div>
                         )}
                       </div>
                       
@@ -169,12 +156,12 @@ export default function Research() {
                           hover:border-transparent 
                           hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)]
                           dark:hover:shadow-[0_4px_12px_rgba(0,0,0,0.3)]
-                          h-10                                   
+                          h-9 sm:h-10                                   
                           px-4                                   
                           text-sm
                           whitespace-nowrap                    
                           min-w-[120px] sm:min-w-[140px]      
-                          ml-4 sm:ml-6                        
+                          mt-4 sm:mt-0 sm:ml-6                        
                           flex-shrink-0
                           group                               
                         "
