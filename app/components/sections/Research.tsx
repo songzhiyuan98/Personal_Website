@@ -1,37 +1,44 @@
-'use client'  // 声明这是客户端组件
+'use client'
 
-import AnimatedText from '../common/AnimatedText'  // 导入动画文本组件
-import { Typography, Container, Box, Card, CardContent, Grid, Modal } from '@mui/material'  // 导入Material UI组件
-import GradientBackground from '../common/GradientBackground'  // 导入渐变背景组件
-import { useState } from 'react'  // 导入React状态钩子
+import AnimatedText from '../common/AnimatedText'
+import ResearchModal from './ResearchModal'
+import { useState } from 'react'
+import Image from 'next/image'
 
-type Publication = {  // 定义出版物类型
-  id: number  // 唯一标识符
-  title: string  // 标题
-  authors: string  // 作者
-  year: string  // 年份
-  journal?: string  // 期刊名称(可选)
-  type: 'publication' | 'working'  // 类型:已发表或在研
-  pdf?: string  // PDF链接(可选)
-  ssrn?: string  // SSRN链接(可选)
-  description?: string  // 描述(可选)
-  citations?: string[]  // 引用列表(可选)
-  bulletPoints?: string[]  // 要点列表(可选)
+type Publication = {
+  id: number
+  title: string
+  authors: string
+  year: string
+  journal?: string
+  type: 'publication' | 'working'
+  pdf?: string
+  ssrn?: string
+  description?: string
+  citations?: string[]
+  bulletPoints?: string[]
+  overview?: string
+  publishDate?: string
+  chartImage?: string
 }
 
-const publications: Publication[] = [  // 出版物数据数组
+const publications: Publication[] = [
   {
-    id: 1,  // 第一篇论文
+    id: 1,
     title: "Cleaner Waters and Urbanization",
     authors: "with Jeremy West",
     year: "2023",
     journal: "Journal of Environmental Economics and Management, 122: 102874",
     type: "publication",
-    pdf: "#",
-    description: "中文介绍 (by E3M)"
+    pdf: "https://labs-laboratory.com/medicine/",
+    ssrn: "https://labs-laboratory.com/medicine/",
+    description: "中文介绍 (by E3M)",
+    overview: "这是论文的详细介绍...",
+    publishDate: "2023年12月",
+    chartImage: "/research/1.png"
   },
   {
-    id: 2,  // 第二篇论文
+    id: 2,
     title: "Donations make people happier: Evidence from the Wenchuan earthquake",
     authors: "with Maoliang Ye",
     year: "2017",
@@ -43,7 +50,7 @@ const publications: Publication[] = [  // 出版物数据数组
     ]
   },
   {
-    id: 3,  // 第三篇论文
+    id: 3,
     title: "Permission to Build: Climate Risk and Property Tax Revenue",
     authors: "",
     year: "2024",
@@ -57,104 +64,59 @@ const publications: Publication[] = [  // 出版物数据数组
   }
 ]
 
-export default function Research() {  // 研究部分组件
-  const [modalOpen, setModalOpen] = useState(false)  // 模态框开关状态
-  const [selectedPaper, setSelectedPaper] = useState<Publication | null>(null)  // 选中的论文状态
+export default function Research() {
+  const [modalOpen, setModalOpen] = useState(false)
+  const [selectedPaper, setSelectedPaper] = useState<Publication | null>(null)
 
-  const handlePaperClick = (paper: Publication) => {  // 处理论文点击事件
-    if (paper.bulletPoints) {  // 如果有要点列表
-      setSelectedPaper(paper)  // 设置选中的论文
-      setModalOpen(true)  // 打开模态框
-    }
+  const handleOpenModal = (paper: Publication) => {
+    setSelectedPaper(paper)
+    setModalOpen(true)
   }
 
   return (
-    <Container id="research" maxWidth="xl" component="section">  {/* 研究部分容器 */}
-      <Box sx={{  // 主要内容盒子
-        minHeight: '100vh',  // 最小高度为视口高度
-        display: 'flex',  // 弹性布局
-        flexDirection: 'column',  // 纵向排列
-        alignItems: 'center',  // 水平居中
-        justifyContent: 'center',  // 垂直居中
-        py: { xs: 4, md: 4 },  // 上下内边距
-        px: { xs: 2, sm: 4, md: 8 },  // 左右内边距
-        position: 'relative',  // 相对定位
-        overflow: 'hidden',  // 溢出隐藏
-      }}>
-        <GradientBackground  // 渐变背景组件
-          sectionId="research"
-          gradientColors={{
-            start: '#A78BFA',  // 起始颜色
-            end: '#8B5CF6'  // 结束颜色
-          }}
-        />
+    <section id="research" className="
+      min-h-screen w-full 
+      flex items-center justify-center 
+      py-16 px-4 sm:px-8 md:px-16
+    ">
 
-        <AnimatedText>  {/* 动画标题 */}
-          <h1 className="text-3xl sm:text-4xl font-bold mb-4 text-center relative z-10">Research</h1>
+      <div className="container max-w-4xl mx-auto relative z-10">
+        <AnimatedText>
+          <h1 className="text-3xl sm:text-4xl font-bold mb-12 text-center">
+            Research
+          </h1>
         </AnimatedText>
 
-        <Grid container spacing={4} sx={{ position: 'relative', zIndex: 1, maxWidth: 'lg' }}>  {/* 网格容器 */}
-          {['publication', 'working'].map((type) => (  // 遍历论文类型
-            <Grid item xs={12} key={type}>  {/* 网格项 */}
-              <AnimatedText>  {/* 动画文本 */}
-                <Typography variant="h2" sx={{  // 类型标题
-                  fontSize: { xs: '1.5rem', sm: '1.75rem' },  // 字体大小
-                  fontWeight: 600,  // 字体粗细
-                  mb: 4,  // 下边距
-                  textTransform: 'capitalize'  // 首字母大写
-                }}>
-                  {type === 'working' ? 'Working Papers' : 'Publications'}  {/* 显示类型标题 */}
-                </Typography>
+        <div className="space-y-16">
+          {['publication', 'working'].map((type) => (
+            <div key={type} className="space-y-8">
+              <AnimatedText>
+                <h2 className="text-xl sm:text-2xl font-semibold">
+                  {type === 'working' ? 'Working Papers' : 'Publications'}
+                </h2>
               </AnimatedText>
 
-              {publications  // 遍历论文
-                .filter(paper => paper.type === type)  // 按类型筛选
-                .map((paper) => (  // 映射到卡片组件
-                  <AnimatedText key={paper.id}>  {/* 动画文本包装 */}
-                    <Card  // 论文卡片
-                      elevation={0}  // 无阴影
-                      onClick={() => handlePaperClick(paper)}  // 点击处理
-                      sx={{
-                        mb: 3,  // 下边距
-                        background: theme => theme.palette.mode === 'dark'  // 背景色
-                          ? 'rgba(0, 0, 0, 0.2)' 
-                          : 'rgba(255, 255, 255, 0.1)',
-                        backdropFilter: 'blur(20px)',  // 背景模糊
-                        borderRadius: 4,  // 圆角
-                        border: theme => `1px solid ${  // 边框
-                          theme.palette.mode === 'dark' 
-                            ? 'rgba(255, 255, 255, 0.1)' 
-                            : 'rgba(255, 255, 255, 0.2)'
-                        }`,
-                        transition: 'all 0.3s ease',  // 过渡效果
-                        cursor: paper.bulletPoints ? 'pointer' : 'default',  // 鼠标样式
-                        '&:hover': paper.bulletPoints ? {  // 悬停效果
-                          transform: 'translateY(-4px)',  // 上移
-                          background: theme => theme.palette.mode === 'dark'  // 背景色变化
-                            ? 'rgba(0, 0, 0, 0.3)'
-                            : 'rgba(255, 255, 255, 0.15)',
-                        } : {}
-                      }}
-                    >
-                      <CardContent sx={{ p: { xs: 2, sm: 3 } }}>  {/* 卡片内容 */}
-                        <Typography variant="h6" sx={{ 
-                          mb: 1,
-                          fontSize: { xs: '1rem', sm: '1.125rem' },
-                          fontWeight: 500,
-                          display: 'flex',
-                          gap: 1,
-                          flexWrap: 'wrap',
-                          alignItems: 'center'  // 添加垂直居中对齐
-                        }}>
-                          {paper.title}
+              {publications
+                .filter(paper => paper.type === type)
+                .map((paper) => (
+                  <AnimatedText key={paper.id}>
+                    <div className="
+                      flex items-center justify-between
+                      pb-6 border-b border-black/10 dark:border-white/10
+                    ">
+                      <div className="space-y-3">
+                        <div className="flex flex-wrap items-center gap-2 text-base sm:text-lg">
+                          <span className="font-medium">{paper.title}</span>
                           {paper.authors && (
                             <span className="opacity-70">({paper.authors})</span>
                           )}
                           <span className="opacity-70">{paper.year}.</span>
                           {paper.pdf && (
                             <a 
-                              href={paper.pdf} 
-                              className="text-blue-400 hover:underline" 
+                              href={paper.pdf}
+                              className="text-purple-500 hover:text-purple-600 dark:text-purple-400 dark:hover:text-purple-300"
+                              target="_blank"
+                              rel="noopener noreferrer"
                               onClick={e => e.stopPropagation()}
                             >
                               [PDF]
@@ -162,120 +124,103 @@ export default function Research() {  // 研究部分组件
                           )}
                           {paper.ssrn && (
                             <a 
-                              href={paper.ssrn} 
-                              className="text-blue-400 hover:underline" 
+                              href={paper.ssrn}
+                              className="text-purple-500 hover:text-purple-600 dark:text-purple-400 dark:hover:text-purple-300"
+                              target="_blank"
+                              rel="noopener noreferrer"
                               onClick={e => e.stopPropagation()}
                             >
                               [SSRN]
                             </a>
                           )}
-                        </Typography>
+                        </div>
 
-                        {paper.journal && (  // 期刊信息
-                          <Typography sx={{ 
-                            opacity: 0.8,  // 透明度
-                            fontSize: { xs: '0.875rem', sm: '1rem' },  // 字体大小
-                            fontStyle: 'italic'  // 斜体
-                          }}>
-                            {paper.journal}  {/* 显示期刊信息 */}
-                          </Typography>
+                        {paper.journal && (
+                          <p className="opacity-80 text-sm sm:text-base italic">
+                            {paper.journal}
+                          </p>
                         )}
 
-                        {paper.description && (  // 论文描述
-                          <Typography sx={{ 
-                            mt: 2,  // 上边距
-                            opacity: 0.7,  // 透明度
-                            fontSize: { xs: '0.875rem', sm: '1rem' }  // 字体大小
-                          }}>
-                            {paper.description}  {/* 显示描述 */}
-                          </Typography>
+                        {paper.description && (
+                          <p className="opacity-70 text-sm sm:text-base">
+                            {paper.description}
+                          </p>
                         )}
 
-                        {paper.citations && (  // 引用信息
-                          <Box sx={{ mt: 2 }}>  {/* 引用容器 */}
-                            <Typography sx={{ 
-                              fontWeight: 500,  // 字体粗细
-                              mb: 1,  // 下边距
-                              fontSize: { xs: '0.875rem', sm: '1rem' }  // 字体大小
-                            }}>
-                              Cited by:  {/* 引用标题 */}
-                            </Typography>
-                            {paper.citations.map((citation, index) => (  // 遍历引用
-                              <Typography key={index} sx={{ 
-                                opacity: 0.7,  // 透明度
-                                fontSize: { xs: '0.875rem', sm: '1rem' }  // 字体大小
-                              }}>
-                                {citation}  {/* 显示引用内容 */}
-                              </Typography>
+                        {paper.citations && (
+                          <div className="mt-4">
+                            <p className="font-medium text-sm sm:text-base mb-2">
+                              Cited by:
+                            </p>
+                            {paper.citations.map((citation, index) => (
+                              <p key={index} className="opacity-70 text-sm sm:text-base">
+                                {citation}
+                              </p>
                             ))}
-                          </Box>
+                          </div>
                         )}
-                      </CardContent>
-                    </Card>
+                      </div>
+                      
+                      <button
+                        onClick={() => handleOpenModal(paper)}
+                        className="
+                          rounded-full border border-solid border-black/[.08] dark:border-white/[.145] 
+                          transition-all flex items-center justify-center 
+                          hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] 
+                          hover:border-transparent 
+                          hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)]
+                          dark:hover:shadow-[0_4px_12px_rgba(0,0,0,0.3)]
+                          h-10                                   
+                          px-4                                   
+                          text-sm
+                          whitespace-nowrap                    
+                          min-w-[120px] sm:min-w-[140px]      
+                          ml-4 sm:ml-6                        
+                          flex-shrink-0
+                          group                               
+                        "
+                      >
+                        <span className="
+                          mr-2
+                          group-hover:translate-x-0.5
+                          transition-transform duration-300
+                        ">
+                          查看详情
+                        </span>
+                        <svg 
+                          width="16" 
+                          height="16" 
+                          viewBox="0 0 16 16" 
+                          fill="none" 
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="
+                            group-hover:translate-x-0.5
+                            transition-transform duration-300
+                            stroke-black dark:stroke-white
+                          "
+                        >
+                          <path 
+                            d="M3 8H13M13 8L8 3M13 8L8 13" 
+                            strokeWidth="1.5" 
+                            strokeLinecap="round" 
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      </button>
+                    </div>
                   </AnimatedText>
                 ))}
-            </Grid>
+            </div>
           ))}
-        </Grid>
-      </Box>
+        </div>
+      </div>
 
-      <Modal
-        open={modalOpen}
-        onClose={() => setModalOpen(false)}
-        sx={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          p: { xs: 2, sm: 4 },
-          bgcolor: 'transparent'
-        }}
-        BackdropProps={{
-          sx: {
-            backgroundColor: 'transparent',
-            backdropFilter: 'blur(16px)'  // 增加背景模糊效果
-          }
-        }}
-      >
-        <Card
-          elevation={0}
-          sx={{
-            maxWidth: { xs: 600, md: 800 },
-            width: '100%',
-            maxHeight: '90vh',
-            overflow: 'auto',
-            background: theme => theme.palette.mode === 'dark' 
-              ? 'rgba(0, 0, 0, 0.2)' 
-              : 'rgba(255, 255, 255, 0.1)',  // 降低亮度
-            backdropFilter: 'blur(20px)',
-            borderRadius: 4,
-            border: theme => `1px solid ${
-              theme.palette.mode === 'dark' 
-                ? 'rgba(255, 255, 255, 0.1)' 
-                : 'rgba(255, 255, 255, 0.2)'  // 降低边框亮度
-            }`,
-            transition: 'all 0.3s ease',
-            boxShadow: theme => theme.palette.mode === 'dark'
-              ? '0 20px 40px rgba(0, 0, 0, 0.2)'
-              : '0 20px 40px rgba(0, 0, 0, 0.05)',
-          }}
-        >
-          <CardContent sx={{ p: { xs: 3, sm: 4, md: 5 } }}>  {/* 增加内边距 */}
-            <Typography variant="h5" sx={{ 
-              mb: 4,  // 增加底部间距
-              fontSize: { xs: '1.25rem', sm: '1.5rem', md: '1.75rem' }  // 增加字体大小
-            }}>
-              {selectedPaper?.title}
-            </Typography>
-            <ul className="list-disc pl-6 space-y-3">  {/* 增加列表项间距 */}
-              {selectedPaper?.bulletPoints?.map((point, index) => (
-                <li key={index} className="text-base sm:text-lg opacity-80">  {/* 增加字体大小 */}
-                  {point}
-                </li>
-              ))}
-            </ul>
-          </CardContent>
-        </Card>
-      </Modal>
-    </Container>
+      {modalOpen && selectedPaper && (
+        <ResearchModal
+          paper={selectedPaper}
+          onClose={() => setModalOpen(false)}
+        />
+      )}
+    </section>
   )
 } 

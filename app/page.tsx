@@ -5,11 +5,12 @@ import About from "./components/sections/About"
 import CourseTimeline from "./components/education/CourseTimeline"
 import Navbar from "./components/common/Navbar"
 import MySkills from './components/sections/MySkills'
-import Experience from './components/sections/Experience'
+//import Experience from './components/sections/Experience'
 import { Box } from '@mui/material'
 import Projects from './components/sections/Projects'
 import Gallery from './components/sections/Gallery'
-// import Research from './components/sections/Research'
+import Research from './components/sections/Research'
+import TeachingExperience from './components/sections/TeachingExperience'
 export default function Home() {
   return (
     <>
@@ -18,8 +19,8 @@ export default function Home() {
         <Hero />    
         <About />
         <MySkills />
-        <Experience />
-        <Projects />
+        <Research />
+        <TeachingExperience />
         <section id="education" className="relative">
           <Box sx={{ 
             display: 'flex', 
