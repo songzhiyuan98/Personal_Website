@@ -7,7 +7,7 @@ import Navbar from "./components/common/Navbar"
 import MySkills from './components/sections/MySkills'
 //import Experience from './components/sections/Experience'
 import { Box } from '@mui/material'
-import Projects from './components/sections/Projects'
+//import Projects from './components/sections/Projects'
 import Gallery from './components/sections/Gallery'
 import Research from './components/sections/Research'
 import TeachingExperience from './components/sections/TeachingExperience'

@@ -3,7 +3,6 @@
 import AnimatedText from '../common/AnimatedText'
 import ResearchModal from './ResearchModal'
 import { useState } from 'react'
-import Image from 'next/image'
 
 type Publication = {
   id: number
