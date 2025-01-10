@@ -20,6 +20,11 @@ type ExperienceDetail = {
     category: string
     items: string[]
   }[]
+  achievements: {
+    metric: string
+    value: string
+    change: number
+  }[]
 }
 
 const labsExperience: ExperienceDetail = {
