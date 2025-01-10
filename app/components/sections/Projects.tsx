@@ -19,22 +19,22 @@ const projects: Project[] = [
   {
     id: 1,
     title: "AnimeHub",
-    description: "A full-stack anime streaming platform with real-time chat and recommendation system",
-    period: "2023.09 - 2023.12",
+    description: "A full-stack anime forum website featuring ratings, rankings, and user discussions with multi-language support.",
+    period: "2024.06 - 2024.11",
     image: "/animehub/1.png",
-    skills: ["React", "Node.js", "Socket.io", "MongoDB"],
+    skills: ["React", "Node.js", "Express.js", "MongoDB", "JWT"],
     link: "https://github.com/songzhiyuan98/animehub"
   },
   {
     id: 2,
-    title: "Portfolio Website",
-    description: "Personal portfolio website built with Next.js and Material-UI",
-    period: "2024.01 - Present",
+    title: "Personal Portfolio Website",
+    description: "A personal portfolio website focusing on minimalist UI design, featuring reusable components and responsive layouts.",
+    period: "2024.10 - 2025.01",
     image: "/personalwebiste/1.png",
-    skills: ["Next.js", "TypeScript", "Material-UI", "Tailwind"],
+    skills: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
     link: "https://github.com/songzhiyuan98/portfolio"
   }
-]
+];
 
 export default function Projects() {
   return (

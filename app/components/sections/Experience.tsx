@@ -18,23 +18,24 @@ type Experience = {
 const experiences: Experience[] = [
   {
     id: 1,
-    title: "Web Development Intern",
-    company: "Labs Laboratory | Columbia University", 
-    period: "2024.12 - 2025.01",
+    title: "Web Developer Intern",
+    company: "Labs Laboratory | Columbia University",
+    period: "Dec 2024 – Present",
     logo: "/companyicon/labs.png",
-    skills: ["React", "TypeScript", "Node.js"],
-    description: "Enhanced human anatomy visualization tools and improved user interface"
+    skills: ["JavaScript", "SVG", "CSS3", "Git"],
+    description: "Developed an interactive anatomy visualization tool with precise localization for 15+ organs, improving research accessibility and user engagement."
   },
   {
     id: 2,
-    title: "Software Development Engineer",
-    company: "Amazon",
-    period: "2023.06 - 2023.09", 
+    title: "Full-Stack Developer Intern & Technical Lead",
+    company: "3CCA Church",
+    period: "Dec 2024 – Present",
     logo: "/companyicon/3CCA.jpg",
-    skills: ["React", "TypeScript", "AWS", "Node.js"],
-    description: "开发并维护了企业级Web应用，优化性能提升30%"
+    skills: ["React", "Node.js", "MongoDB", "AWS"],
+    description: "Redesigned and redeveloped the 3CCA Church website, enhancing user experience and operational efficiency while optimizing website performance by 30%."
   }
-]
+];
+
 
 export default function Experience() {
   return (
