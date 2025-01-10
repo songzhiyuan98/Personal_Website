@@ -9,7 +9,7 @@ import Experience from './components/sections/Experience'
 import { Box } from '@mui/material'
 import Projects from './components/sections/Projects'
 import Gallery from './components/sections/Gallery'
-import Research from './components/sections/Research'
+// import Research from './components/sections/Research'
 export default function Home() {
   return (
     <>
