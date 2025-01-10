@@ -2,8 +2,9 @@
 
 import AnimatedText from '../common/AnimatedText'
 import Image from 'next/image'
-import { Typography, Container, Box, Card, CardContent, Grid } from '@mui/material'
 import GradientBackground from '../common/GradientBackground'
+import ExperienceModal from './Motal'
+import { useState } from 'react'
 
 type Experience = {
   id: number
@@ -36,157 +37,114 @@ const experiences: Experience[] = [
   }
 ];
 
-
 export default function Experience() {
+  const [modalOpen, setModalOpen] = useState(false)
+  const [selectedExperience, setSelectedExperience] = useState<number | null>(null)
+
   return (
-    <Container id="experience" maxWidth="xl" component="section">
-      <Box sx={{ 
-        minHeight: '100vh',
-        display: 'flex', 
-        flexDirection: 'column', 
-        alignItems: 'center',
-        justifyContent: 'center',
-        py: { xs: 8, md: 12 },
-        px: { xs: 2, sm: 4, md: 8 },
-        position: 'relative',
-        overflow: 'hidden',
-      }}>
+    <section id="experience" className="container mx-auto px-4 sm:px-8 md:px-12">
+      <div className="
+        min-h-screen
+        flex flex-col items-center justify-center
+        py-16 md:py-20
+        relative
+        overflow-hidden
+      ">
         <GradientBackground 
           sectionId="experience"
           gradientColors={{
-            start: '#A78BFA',
-            end: '#8B5CF6'
+            start: '#818CF8',
+            end: '#6366F1'
           }}
         />
 
         <AnimatedText>
-          <h1 className="text-3xl sm:text-4xl font-bold mb-16 text-center relative z-10">Experience</h1>
+          <h1 className="text-3xl sm:text-4xl font-bold mb-12 text-center relative z-10">
+            Experience
+          </h1>
         </AnimatedText>
-        
-        <Grid container spacing={4} sx={{ position: 'relative', zIndex: 1, maxWidth: 'lg' }}>
-          {experiences.map((exp) => (
-            <Grid item xs={12} md={6} key={exp.id}>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 relative z-10 max-w-6xl w-full">
+          {experiences.map((experience) => (
+            <div key={experience.id}>
               <AnimatedText>
-                <Card 
-                  elevation={0}
-                  sx={{
-                    height: '100%',
-                    background: theme => theme.palette.mode === 'dark' 
-                      ? 'rgba(0, 0, 0, 0.2)' 
-                      : 'rgba(255, 255, 255, 0.1)',
-                    color: theme => theme.palette.mode === 'dark'
-                      ? '#fff'
-                      : '#000',
-                    backdropFilter: 'blur(20px)',
-                    borderRadius: 4,
-                    border: theme => `1px solid ${
-                      theme.palette.mode === 'dark' 
-                        ? 'rgba(255, 255, 255, 0.1)' 
-                        : 'rgba(255, 255, 255, 0.2)'
-                    }`,
-                    transition: 'all 0.3s ease',
-                    '&:hover': {
-                      transform: 'translateY(-8px)',
-                      background: theme => theme.palette.mode === 'dark'
-                        ? 'rgba(0, 0, 0, 0.3)'
-                        : 'rgba(255, 255, 255, 0.15)',
-                      boxShadow: theme => theme.palette.mode === 'dark'
-                        ? '0 20px 40px rgba(0, 0, 0, 0.3)'
-                        : '0 20px 40px rgba(0, 0, 0, 0.1)',
-                    }
+                <div 
+                  onClick={() => {
+                    setSelectedExperience(experience.id)
+                    setModalOpen(true)
                   }}
+                  className="
+                    bg-white/[0.1] dark:bg-black/[0.2]
+                    backdrop-blur-[20px]
+                    rounded-2xl
+                    border border-white/[0.1] dark:border-white/[0.1]
+                    p-6
+                    transition-all duration-300
+                    hover:-translate-y-1
+                    hover:shadow-xl
+                    cursor-pointer
+                    h-full
+                  "
                 >
-                  <CardContent sx={{ p: { xs: 2, sm: 3, md: 4 } }}>
-                    <Box sx={{ 
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: { xs: 1, sm: 2 },
-                      mb: { xs: 2, sm: 3 }
-                    }}>
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="relative w-12 h-12 rounded-xl overflow-hidden flex-shrink-0">
                       <Image
-                        src={exp.logo}
-                        alt={`${exp.company} logo`}
-                        width={48}
-                        height={48}
-                        style={{
-                          objectFit: 'contain',
-                          borderRadius: '8px',
-                          width: '40px',
-                          height: '40px'
-                        }}
+                        src={experience.logo}
+                        alt={experience.company}
+                        fill
+                        className="object-cover"
                       />
-                      <div>
-                        <Typography 
-                          variant="h5" 
-                          sx={{ 
-                            mb: 0.5,
-                            fontSize: { xs: '1rem', sm: '1.25rem', md: '1.5rem' },
-                            fontWeight: { xs: 500, sm: 600 }
-                          }}
-                        >
-                          {exp.title}
-                        </Typography>
-                        <Typography 
-                          variant="body1" 
-                          sx={{ 
-                            opacity: 0.7, 
-                            fontWeight: 500,
-                            fontSize: { xs: '0.875rem', sm: '1rem' }
-                          }}
-                        >
-                          {exp.company}
-                        </Typography>
-                      </div>
-                    </Box>
-
-                    <Typography 
-                      variant="body2" 
-                      sx={{ 
-                        opacity: 0.6, 
-                        fontStyle: 'italic', 
-                        mb: { xs: 1, sm: 2 },
-                        fontSize: { xs: '0.75rem', sm: '0.875rem' }
-                      }}
-                    >
-                      {exp.period}
-                    </Typography>
-
-                    <Typography 
-                      variant="body1" 
-                      sx={{ 
-                        opacity: 0.8, 
-                        mb: { xs: 2, sm: 3 }, 
-                        lineHeight: 1.6,
-                        fontSize: { xs: '0.875rem', sm: '1rem' }
-                      }}
-                    >
-                      {exp.description}
-                    </Typography>
-
-                    <div className="flex flex-wrap gap-2">
-                      {exp.skills.map((skill) => (
-                        <span 
-                          key={skill}
-                          className="
-                            px-3 py-1 text-sm rounded-full
-                            bg-white/5 backdrop-blur-sm
-                            border border-white/10
-                            opacity-70
-                            transition-colors
-                            hover:bg-white/10
-                          "
-                        >
-                          {skill}
-                        </span>
-                      ))}
                     </div>
-                  </CardContent>
-                </Card>
+                    
+                    <div>
+                      <h2 className="text-2xl font-semibold">
+                        {experience.title}
+                      </h2>
+                      
+                      <p className="text-base text-gray-600 dark:text-gray-400">
+                        {experience.company}
+                      </p>
+                    </div>
+                  </div>
+
+                  <p className="text-base text-gray-600 dark:text-gray-400 mb-4">
+                    {experience.period}
+                  </p>
+                  
+                  <p className="text-lg text-gray-600 dark:text-gray-400 mb-6">
+                    {experience.description}
+                  </p>
+                  
+                  <div className="flex flex-wrap gap-2">
+                    {experience.skills.map((skill) => (
+                      <span
+                        key={skill}
+                        className="
+                          px-3 py-1
+                          text-sm
+                          rounded-full
+                          bg-white/[0.05] dark:bg-white/[0.05]
+                          backdrop-blur-[8px]
+                          border border-white/[0.05]
+                          text-gray-600 dark:text-gray-400
+                        "
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
               </AnimatedText>
-            </Grid>
+            </div>
           ))}
-        </Grid>
-      </Box>
-    </Container>
+        </div>
+      </div>
+
+      <ExperienceModal
+        open={modalOpen}
+        onClose={() => setModalOpen(false)}
+        experienceId={selectedExperience || 0}
+      />
+    </section>
   )
 }

@@ -2,8 +2,9 @@
 
 import AnimatedText from '../common/AnimatedText'
 import Image from 'next/image'
-import { Typography, Container, Box, Card, CardContent, Grid } from '@mui/material'
 import GradientBackground from '../common/GradientBackground'
+import ExperienceModal from './Motal'
+import { useState } from 'react'
 
 type Project = {
   id: number
@@ -17,7 +18,7 @@ type Project = {
 
 const projects: Project[] = [
   {
-    id: 1,
+    id: 3,
     title: "AnimeHub",
     description: "A full-stack anime forum website featuring ratings, rankings, and user discussions with multi-language support.",
     period: "2024.06 - 2024.11",
@@ -26,7 +27,7 @@ const projects: Project[] = [
     link: "https://github.com/songzhiyuan98/animehub"
   },
   {
-    id: 2,
+    id: 4,
     title: "Personal Portfolio Website",
     description: "A personal portfolio website focusing on minimalist UI design, featuring reusable components and responsive layouts.",
     period: "2024.10 - 2025.01",
@@ -37,19 +38,18 @@ const projects: Project[] = [
 ];
 
 export default function Projects() {
+  const [modalOpen, setModalOpen] = useState(false)
+  const [selectedProject, setSelectedProject] = useState<number | null>(null)
+
   return (
-    <Container id="projects" maxWidth="xl" component="section">
-      <Box sx={{ 
-        minHeight: '100vh',
-        display: 'flex', 
-        flexDirection: 'column', 
-        alignItems: 'center',
-        justifyContent: 'center',
-        py: { xs: 4, md: 4 },
-        px: { xs: 2, sm: 4, md: 8 },
-        position: 'relative',
-        overflow: 'hidden',
-      }}>
+    <section id="projects" className="container mx-auto px-4 sm:px-8 md:px-12">
+      <div className="
+        min-h-screen
+        flex flex-col items-center justify-center
+        py-4 md:py-8
+        relative
+        overflow-hidden
+      ">
         <GradientBackground 
           sectionId="projects"
           gradientColors={{
@@ -59,102 +59,83 @@ export default function Projects() {
         />
 
         <AnimatedText>
-          <h1 className="text-3xl sm:text-4xl font-bold mb-12 text-center relative z-10">Projects</h1>
+          <h1 className="text-3xl sm:text-4xl font-bold mb-8 text-center relative z-10">
+            Projects
+          </h1>
         </AnimatedText>
         
-        <Grid container spacing={4} sx={{ position: 'relative', zIndex: 1, maxWidth: 'lg' }}>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 relative z-10 max-w-6xl w-full">
           {projects.map((project) => (
-            <Grid item xs={12} md={6} key={project.id}>
+            <div key={project.id}>
               <AnimatedText>
-                <Card 
-                  elevation={0}
-                  sx={{
-                    height: '100%',
-                    background: theme => theme.palette.mode === 'dark' 
-                      ? 'rgba(0, 0, 0, 0.2)' 
-                      : 'rgba(255, 255, 255, 0.1)',
-                    backdropFilter: 'blur(20px)',
-                    borderRadius: 4,
-                    border: theme => `1px solid ${
-                      theme.palette.mode === 'dark' 
-                        ? 'rgba(255, 255, 255, 0.1)' 
-                        : 'rgba(255, 255, 255, 0.2)'
-                    }`,
-                    transition: 'all 0.3s ease',
-                    '&:hover': {
-                      transform: 'translateY(-8px)',
-                      background: theme => theme.palette.mode === 'dark'
-                        ? 'rgba(0, 0, 0, 0.3)'
-                        : 'rgba(255, 255, 255, 0.15)',
-                      boxShadow: theme => theme.palette.mode === 'dark'
-                        ? '0 20px 40px rgba(0, 0, 0, 0.3)'
-                        : '0 20px 40px rgba(0, 0, 0, 0.1)',
-                    }
+                <div 
+                  onClick={() => {
+                    setSelectedProject(project.id)
+                    setModalOpen(true)
                   }}
+                  className="
+                    bg-white/[0.1] dark:bg-black/[0.2]
+                    backdrop-blur-[20px]
+                    rounded-2xl
+                    border border-white/[0.1] dark:border-white/[0.1]
+                    p-6
+                    transition-all duration-300
+                    hover:-translate-y-1
+                    hover:shadow-xl
+                    cursor-pointer
+                  "
                 >
-                  <CardContent sx={{ p: 4 }}>
-                    <Box sx={{ mb: 3 }}>
-                      <Image
-                        src={project.image}
-                        alt={project.title}
-                        width={400}
-                        height={200}
-                        className="rounded-lg object-cover w-full"
-                      />
-                    </Box>
-
-                    <Typography variant="h5" sx={{ 
-                      mb: 1, 
-                      fontWeight: 600,
-                      fontSize: { xs: '1.125rem', sm: '1.25rem', md: '1.5rem' }
-                    }}>
-                      {project.title}
-                    </Typography>
-
-                    <Typography variant="body2" sx={{ 
-                      opacity: 0.6, 
-                      fontStyle: 'italic', 
-                      mb: 2,
-                      fontSize: { xs: '0.75rem', sm: '0.875rem' }
-                    }}>
-                      {project.period}
-                    </Typography>
-
-                    <Typography variant="body1" sx={{ 
-                      opacity: 0.8, 
-                      mb: 3, 
-                      lineHeight: 1.6,
-                      fontSize: { xs: '0.875rem', sm: '1rem' }
-                    }}>
-                      {project.description}
-                    </Typography>
-
-                    <div className="flex flex-wrap gap-2">
-                      {project.skills.map((skill) => (
-                        <span 
-                          key={skill}
-                          className="
-                            px-3 py-1 
-                            text-xs sm:text-sm
-                            rounded-full
-                            bg-white/5 backdrop-blur-sm
-                            border border-white/10
-                            opacity-70
-                            transition-colors
-                            hover:bg-white/10
-                          "
-                        >
-                          {skill}
-                        </span>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
+                  <div className="relative w-full h-64 mb-4">
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      className="rounded-lg object-cover"
+                    />
+                  </div>
+                  
+                  <h2 className="text-2xl font-semibold mb-2">
+                    {project.title}
+                  </h2>
+                  
+                  <p className="text-base text-gray-600 dark:text-gray-400 mb-2">
+                    {project.period}
+                  </p>
+                  
+                  <p className="text-base text-gray-600 dark:text-gray-400 mb-4 line-clamp-2">
+                    {project.description}
+                  </p>
+                  
+                  <div className="flex flex-wrap gap-2">
+                    {project.skills.map((skill) => (
+                      <span
+                        key={skill}
+                        className="
+                          px-3 py-1
+                          text-sm
+                          rounded-full
+                          bg-white/[0.05] dark:bg-white/[0.05]
+                          backdrop-blur-[8px]
+                          border border-white/[0.05]
+                          text-gray-600 dark:text-gray-400
+                        "
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
               </AnimatedText>
-            </Grid>
+            </div>
           ))}
-        </Grid>
-      </Box>
-    </Container>
+        </div>
+      </div>
+
+      <ExperienceModal
+        open={modalOpen}
+        onClose={() => setModalOpen(false)}
+        experienceId={selectedProject || 0}
+      />
+    </section>
   )
 } 
