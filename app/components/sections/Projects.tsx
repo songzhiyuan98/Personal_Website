@@ -22,7 +22,7 @@ const projects: Project[] = [
     title: "AnimeHub",
     description: "A full-stack anime forum website featuring ratings, rankings, and user discussions with multi-language support.",
     period: "2024.06 - 2024.11",
-    image: "/animehub/1.png",
+    image: "/animehub/home.png",
     skills: ["React", "Node.js", "Express.js", "MongoDB", "JWT"],
     link: "https://github.com/songzhiyuan98/animehub"
   },
@@ -31,9 +31,18 @@ const projects: Project[] = [
     title: "Personal Portfolio Website",
     description: "A personal portfolio website focusing on minimalist UI design, featuring reusable components and responsive layouts.",
     period: "2024.10 - 2025.01",
-    image: "/personalwebiste/1.png",
+    image: "/personalwebsite/1.png",
     skills: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
     link: "https://github.com/songzhiyuan98/portfolio"
+  },
+  {
+    id: 5,
+    title: "个人网站模板系统",
+    description: "开发了一个灵活的个人网站模板系统，分别针对求职者和科研人员提供了不同版本，包含新手引导、内容管理和主题定制功能。",
+    period: "2025.01 - 2025.02",
+    image: "/pw-temp/home.png",
+    skills: ["Next.js", "React", "TypeScript", "Redux Toolkit"],
+    link: "https://portfolio-template.vercel.app"
   }
 ];
 

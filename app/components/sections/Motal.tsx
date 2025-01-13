@@ -312,23 +312,33 @@ const portfolioExperience: ExperienceDetail = {
   company: "Personal Project",
   overview: "设计并开发了个人作品集网站，专注于极简主义UI设计，实现了可重用组件和响应式布局。采用最新的Next.js框架，确保了良好的性能和用户体验。",
   mainImage: "/personalwebsite/1.png",
-  link: "https://github.com/songzhiyuan98/portfolio",
-  github: "https://github.com/songzhiyuan98/portfolio",
+  link: "https://www.zhiyuansong.dev",
+  github: "https://github.com/songzhiyuan98/Personal_Website",
   features: [
+    {
+      title: "个人作品集网站",
+      description: "包括首页、关于我、技术栈、经历、项目、教育等板块，通过简洁设计与流畅导航展示个人背景与技能。",
+      image: "/personalwebsite/1.png"
+    },
+    {
+      title: "项目模态框展示",
+      description: "点击项目卡片弹出模态框，展示详细信息，包括项目概览、技术栈、成果与相关链接，为用户提供交互式的项目浏览体验。",
+      image: "/personalwebsite/motal.png"
+    },
     {
       title: "响应式设计",
       description: "使用 Tailwind CSS 实现完全响应式布局，确保在各种设备上都能提供出色的浏览体验。",
-      image: "/personalwebsite/responsive.gif"
+      image: "/personalwebsite/1.png"
     },
     {
       title: "动画效果",
       description: "集成 Framer Motion 实现流畅的页面过渡和交互动画，提升用户体验。",
-      image: "/personalwebsite/animation.gif"
+      image: "/personalwebsite/framemotion.gif"
     },
     {
       title: "深色模式",
-      description: "实现了自动和手动切换的深色模式，并确保所有组件都能完美适配两种主题。",
-      image: "/personalwebsite/darkmode.png"
+      description: "实现了系统级自适应深色模式，并确保所有组件都能完美适配两种主题。",
+      image: "/personalwebsite/darkmode.gif"
     }
   ],
   techStack: [
@@ -342,24 +352,87 @@ const portfolioExperience: ExperienceDetail = {
     },
     {
       category: "开发工具",
-      items: ["Git", "ESLint", "Prettier"]
+      items: ["Git", "ESLint"]
     }
   ],
   achievements: [
     {
+      metric: "SEO排名",
+      value: "#1",
+      change: 100
+    },
+    {
+      metric: "月访问量",
+      value: "2000+",
+      change: 100
+    },
+    {
       metric: "性能评分",
       value: "98/100",
       change: 98
+    }
+  ]
+}
+
+const portfolioTemplateExperience: ExperienceDetail = {
+  id: 5,
+  title: "个人网站模板系统",
+  company: "个人项目",
+  overview: "开发了一个灵活的个人网站模板系统，分别针对求职者和科研人员提供了不同版本。系统包含新手引导、内容管理和主题定制功能，帮助用户快速搭建专业的个人展示网站。",
+  mainImage: "/pw-temp/home.png",
+  link: "https://portfolio-template.vercel.app",
+  github: "https://github.com/songzhiyuan98/portfolio-template",
+  features: [
+    {
+      title: "多版本模板",
+      description: "提供求职者版本(展示项目经验和技能)和科研人员版本(展示论文发表和教学经验)两种模板，满足不同用户群体需求。",
+      image: "/personalwebsite/versions.png"
     },
     {
-      metric: "代码复用率",
-      value: "80%",
-      change: 80
+      title: "新手引导系统",
+      description: "集成交互式引导功能，通过步骤说明帮助用户快速完成内容配置和网站部署，降低使用门槛。",
+      image: "/personalwebsite/guide.gif"
     },
     {
-      metric: "访问量/月",
-      value: "1000+",
+      title: "内容管理系统",
+      description: "提供简单的内容管理界面，用户可以轻松编辑个人信息、经历、项目等内容，支持实时预览。",
+      image: "/personalwebsite/cms.png"
+    },
+    {
+      title: "主题定制",
+      description: "支持自定义颜色、字体、布局等样式，并提供多套预设主题，满足个性化需求。",
+      image: "/personalwebsite/themes.png"
+    }
+  ],
+  techStack: [
+    {
+      category: "前端技术",
+      items: ["Next.js", "React", "TypeScript", "Tailwind CSS"]
+    },
+    {
+      category: "状态管理",
+      items: ["Redux Toolkit", "React Context"]
+    },
+    {
+      category: "部署工具",
+      items: ["Vercel", "GitHub Actions"]
+    }
+  ],
+  achievements: [
+    {
+      metric: "模板下载量",
+      value: "500+",
       change: 100
+    },
+    {
+      metric: "部署成功率",
+      value: "95%",
+      change: 95
+    },
+    {
+      metric: "用户满意度",
+      value: "4.8/5",
+      change: 96
     }
   ]
 }
@@ -373,7 +446,7 @@ export default function ExperienceModal({
   onClose: () => void
   experienceId: number 
 }) {
-  const experience = experienceId === 1 ? labsExperience : experienceId === 2 ? churchExperience : experienceId === 3 ? animeHubExperience : portfolioExperience
+  const experience = experienceId === 1 ? labsExperience : experienceId === 2 ? churchExperience : experienceId === 3 ? animeHubExperience : experienceId === 4 ? portfolioExperience : portfolioTemplateExperience
 
   useEffect(() => {
     if (open) {
