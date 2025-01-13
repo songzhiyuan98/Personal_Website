@@ -188,60 +188,120 @@ const animeHubExperience: ExperienceDetail = {
   id: 3,
   title: "AnimeHub",
   company: "Personal Project",
-  overview: "开发了一个全栈动漫论坛网站，支持评分、排名和用户讨论功能，并提供多语言支持。该项目采用现代化的技术栈，实现了良好的用户体验和性能优化。",
-  mainImage: "/animehub/1.png",
-  link: "https://github.com/songzhiyuan98/animehub",
+  overview: "Developed a full-stack anime forum website supporting features such as rating, ranking, and user discussions, with multi-language support. The project leverages a modern tech stack to deliver an optimized user experience and high performance.",
+  mainImage: "/animehub/home.png",
+  link: "https://animehub-frontend.netlify.app",
   github: "https://github.com/songzhiyuan98/animehub",
   features: [
     {
-      title: "用户系统",
-      description: "实现了完整的用户认证系统，包括注册、登录、密码重置等功能。使用 JWT 进行身份验证，确保用户数据安全。",
-      image: "/animehub/auth.gif"
+      title: "Daily Recommendations",
+      description: "Refresh popular anime daily through algorithms, providing real-time recommendations of the latest and most popular anime news.",
+      image: "/animehub/daily-recommendation.png"
     },
     {
-      title: "动漫管理",
-      description: "开发了动漫信息的增删改查功能，支持评分、评论和收藏。集成了第三方 API 获取动漫数据，提供丰富的内容。",
-      image: "/animehub/anime.png"
+      title: "Anime Details Page",
+      description: "Provides anime titles, synopsis, popular related videos, while supporting favorites and comment functions to enhance user interaction.",
+      image: "/animehub/anime-detail.png"
     },
     {
-      title: "社区互动",
-      description: "实现了用户讨论区功能，支持发帖、回复、点赞等社交功能。使用 WebSocket 实现实时通知和在线聊天。",
+      title: "Related Videos",
+      description: "Display anime-related video content, including PVs, EDs, OPs, helping users quickly understand the latest anime updates.",
+      image: "/animehub/related-videos.png"
+    },
+    {
+      title: "Anime Planet",
+      description: "Anime search functionality integrating third-party APIs for rich anime data, supporting quick search and browsing. Users can click any entry to view details and explore more related content.",
+      image: "/animehub/anime-planet.png"
+    },
+    {
+      title: "Anime Filtering and Search",
+      description: "Combines multi-dimensional tag filtering and search functionality, precisely filtering anime by category, year, rating and other conditions. Supports input search with automatic translation optimization for Japanese anime titles, helping users quickly find the most relevant anime content.",
+      image: "/animehub/anime-filter-search.png"
+    },
+    {
+      title: "Forum Posts Section",
+      description: "Displays all posts with real-time content updates based on posting time. Homepage features popular post recommendations to help users quickly access the latest trending news, creating an active anime community interaction experience.",
+      image: "/animehub/forum-posts.png"
+    },
+    {
+      title: "Create New Post",
+      description: "Supports creating posts through a rich text editor, flexibly adding videos, images, YouTube embedded links, text formatting and more. Users can use existing database tags or add new ones via '#', which are recorded and support personalized recommendations.",
+      image: "/animehub/new-post.png"
+    },
+    {
+      title: "Post Details Page",
+      description: "Displays post details and author information, while providing post metrics (likes, views, etc.) and a comment section for user interaction. Recommends similar posts through tags and backend algorithms, pushing real-time relevant topics users are interested in to increase community engagement.",
+      image: "/animehub/post-detail.png"
+    },
+    {
+      title: "User Registration",
+      description: "Implemented comprehensive user registration functionality. Each email can only register once, with email verification ensuring user identity validity. Also integrated password strength analysis tools, requiring users to set strong passwords to enhance account security.",
+      image: "/animehub/register.png"
+    },
+    {
+      title: "User Login",
+      description: "Developed a secure and reliable user login system using JWT (JSON Web Token) for authentication, ensuring session security. Supports automatic expiration and refresh mechanisms to effectively protect user data from unauthorized access.",
+      image: "/animehub/login.png"
+    },
+    {
+      title: "User Profile",
+      description: "Provides user profile management functionality, supporting username, avatar and gender changes to achieve highly personalized settings and enhance user's unique platform experience.",
+      image: "/animehub/user-profile.png"
+    },
+    {
+      title: "Notification Center",
+      description: "Implements real-time notifications through WebSocket, helping users receive important updates instantly. Supports clicking notifications to navigate directly to corresponding anime or post detail pages, ensuring users don't miss any key information.",
+      image: "/animehub/notifications.png"
+    },
+    {
+      title: "User Favorites Section",
+      description: "Displays all anime favorited by users, allowing quick browsing of saved content. Supports clicking to navigate to corresponding detail pages for further information exploration.",
+      image: "/animehub/user-favorites.png"
+    },
+    {
+      title: "Multi-language Support",
+      description: "Platform supports switching between Chinese, English and Japanese, with language preferences stored in account settings for persistent storage, providing a more personalized and convenient browsing experience. More language support is continuously being updated, aiming to create a global anime community.",
+      image: "/animehub/multi-language.png"
+    },
+    {
+      title: "Community Interaction",
+      description: "Implemented user discussion area functionality, supporting social features like posting, replying, and liking. Uses WebSocket for real-time notifications.",
       image: "/animehub/community.png"
     }
   ],
   techStack: [
     {
-      category: "前端技术",
-      items: ["React", "Redux", "TailwindCSS", "TypeScript"]
+      category: "Frontend Technologies",
+      items: ["React", "Redux", "Material-UI", "JavaScript"]
     },
     {
-      category: "后端技术",
+      category: "Backend Technologies", 
       items: ["Node.js", "Express", "MongoDB", "WebSocket"]
     },
     {
-      category: "认证安全",
-      items: ["JWT", "Bcrypt", "OAuth2.0"]
+      category: "Authentication & Security",
+      items: ["JWT", "Bcrypt"]
     },
     {
-      category: "部署工具",
-      items: ["Docker", "Nginx", "PM2"]
+      category: "Deployment Tools",
+      items: ["Netlify", "Render", "Cloudnary"]
     }
   ],
   achievements: [
     {
-      metric: "日活跃用户",
-      value: "500+",
+      metric: "Anime Data Loading Optimization",
+      value: "90%",
+      change: 90
+    },
+    {
+      metric: "Comment Update Speed",
+      value: "2x",
       change: 100
     },
     {
-      metric: "页面加载速度",
-      value: "<2s",
-      change: 80
-    },
-    {
-      metric: "用户满意度",
-      value: "90%",
-      change: 90
+      metric: "API Response Time",
+      value: "<500ms", 
+      change: 85
     }
   ]
 }
@@ -411,7 +471,7 @@ export default function ExperienceModal({
                   {experience.title}
                 </h1>
                 <a
-                  href={experience.link}
+                  href={experience.github}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="
@@ -482,7 +542,7 @@ export default function ExperienceModal({
                 backdrop-blur-sm
                 border border-white/10
               ">
-                查看项目
+                View Project
               </span>
             </div>
             <Image
@@ -508,7 +568,7 @@ export default function ExperienceModal({
               before:content-[''] before:block before:w-8 before:h-[2px] 
               before:bg-purple-500/50
             ">
-              核心功能
+              Core Features
             </h2>
             <div className="space-y-12">
               {experience.features.map((feature, index) => (
@@ -518,9 +578,7 @@ export default function ExperienceModal({
                     flex flex-col md:flex-row 
                     gap-8 
                     items-center
-                    hover:bg-white/5 dark:hover:bg-black/20
                     p-4 rounded-xl
-                    transition-colors duration-300
                   "
                 >
                   <div className="flex-1 space-y-4">
@@ -544,8 +602,6 @@ export default function ExperienceModal({
                     relative w-full h-[200px]
                     rounded-xl overflow-hidden
                     shadow-lg
-                    transform hover:scale-[1.02]
-                    transition-transform duration-300
                   ">
                     <Image
                       src={feature.image}
@@ -565,7 +621,7 @@ export default function ExperienceModal({
               font-bold 
               tracking-tight
             ">
-              技术栈
+              Tech Stack
             </h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -646,7 +702,7 @@ export default function ExperienceModal({
               font-bold 
               tracking-tight
             ">
-              量化成果
+              Quantitative Results
             </h2>
             <div className="
               grid grid-cols-1 sm:grid-cols-3 

@@ -145,6 +145,14 @@ export default function Research() {
                             {paper.description}
                           </p>
                         )}
+
+                        {paper.bulletPoints && (
+                          <ul className="list-disc list-inside opacity-70 text-xs sm:text-base pl-1 space-y-1">
+                            {paper.bulletPoints.map((point, index) => (
+                              <li key={index}>{point}</li>
+                            ))}
+                          </ul>
+                        )}
                       </div>
                       
                       <button

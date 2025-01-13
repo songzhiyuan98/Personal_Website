@@ -9,7 +9,7 @@ const technologies = {
     { name: 'React', icon: '/skills/react.svg' },
     { name: 'Redux', icon: '/skills/redux.svg' },
     { name: 'TypeScript', icon: '/skills/typescript.svg' },
-    { name: 'Material-UI', icon: '/skills/mui.svg' },
+    { name: 'Material-UI', icon: '/skills/material-ui.svg' },
     { name: 'Ant Design', icon: '/skills/antd.svg' },
   ],
   backend: [
