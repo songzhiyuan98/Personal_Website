@@ -437,6 +437,15 @@ const portfolioTemplateExperience: ExperienceDetail = {
   ]
 }
 
+const preloadImages = (features: { image: string }[]) => {
+  if (typeof window === 'undefined') return;
+  
+  features.forEach(feature => {
+    const img = new window.Image();
+    img.src = feature.image;
+  });
+};
+
 export default function ExperienceModal({ 
   open, 
   onClose,
@@ -446,21 +455,26 @@ export default function ExperienceModal({
   onClose: () => void
   experienceId: number 
 }) {
-  const experience = experienceId === 1 ? labsExperience : experienceId === 2 ? churchExperience : experienceId === 3 ? animeHubExperience : experienceId === 4 ? portfolioExperience : portfolioTemplateExperience
+  const experience = experienceId === 1 ? labsExperience : 
+                    experienceId === 2 ? churchExperience : 
+                    experienceId === 3 ? animeHubExperience : 
+                    experienceId === 4 ? portfolioExperience : 
+                    portfolioTemplateExperience;
 
   useEffect(() => {
     if (open) {
-      document.body.style.overflow = 'hidden'
+      document.body.style.overflow = 'hidden';
+      preloadImages(experience.features);
     } else {
-      document.body.style.overflow = 'unset'
+      document.body.style.overflow = 'unset';
     }
 
     return () => {
-      document.body.style.overflow = 'unset'
+      document.body.style.overflow = 'unset';
     }
-  }, [open])
+  }, [open, experience.features]);
 
-  if (!open) return null
+  if (!open) return null;
 
   return (
     <div 
