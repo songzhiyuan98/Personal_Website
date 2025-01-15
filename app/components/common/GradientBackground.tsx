@@ -45,7 +45,7 @@ export default function GradientBackground({ sectionId, gradientColors }: Props)
           },
           height: {
             xs: '200px',
-            sm: '400px'
+            sm: '500px'
           },
           borderRadius: '50%',
           background: `linear-gradient(135deg, ${gradientColors.start}, ${gradientColors.end})`,
