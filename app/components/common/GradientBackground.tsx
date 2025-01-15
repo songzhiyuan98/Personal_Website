@@ -63,7 +63,8 @@ export default function GradientBackground({ sectionId, gradientColors }: Props)
           },
           opacity: isVisible ? 0.3 : 0,
           transition: 'opacity 0.8s ease-in-out',
-          zIndex: 1,
+          zIndex: -1,
+          pointerEvents: 'none',
         }}
       />
       <Box
@@ -93,7 +94,8 @@ export default function GradientBackground({ sectionId, gradientColors }: Props)
           },
           opacity: isVisible ? 0.3 : 0,
           transition: 'opacity 0.8s ease-in-out',
-          zIndex: 1,
+          zIndex: -1,
+          pointerEvents: 'none',
         }}
       />
     </>

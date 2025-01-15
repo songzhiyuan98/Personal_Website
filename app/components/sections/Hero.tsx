@@ -2,12 +2,12 @@
 
 import Image from "next/image"
 import AnimatedText from "../common/AnimatedText"
-// import FloatingElements from "../common/FloatingElements"
+import FloatingElements from "../common/FloatingElements"
 
 export default function Hero() {
   return (
     <section id="home" className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      {/* <FloatingElements /> */}
+      <FloatingElements />
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
         <AnimatedText className="flex flex-col items-center sm:items-start gap-4">
           <Image
@@ -62,10 +62,8 @@ export default function Hero() {
           </a>
           <a
             className="
-              relative
-              z-20
               rounded-full border border-solid border-black/[.08] dark:border-white/[.145] 
-              transition-colors flex items-center justify-center
+              transition-colors flex items-center justify-center 
               hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] 
               hover:border-transparent 
               h-12                                   // 固定高度
@@ -93,7 +91,7 @@ export default function Hero() {
         className="row-start-3 flex gap-6 flex-wrap items-center justify-center"
       >
         <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4 relative z-20"
+          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
           href="mailto:songzhiyuan98@gmail.com"
         >
           <Image
@@ -107,7 +105,7 @@ export default function Hero() {
           Email Me
         </a>
         <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4 relative z-20"
+          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
           href="https://www.linkedin.com/in/zhiyuan-song-761651217/"
           target="_blank"
           rel="noopener noreferrer"
