@@ -2,12 +2,12 @@
 
 import Image from "next/image"
 import AnimatedText from "../common/AnimatedText"
-import FloatingElements from "../common/FloatingElements"
+// import FloatingElements from "../common/FloatingElements"
 
 export default function Hero() {
   return (
     <section id="home" className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <FloatingElements />
+      {/* <FloatingElements /> */}
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
         <AnimatedText className="flex flex-col items-center sm:items-start gap-4">
           <Image
@@ -32,11 +32,13 @@ export default function Hero() {
           </p>
         </AnimatedText>
 
-        <AnimatedText 
+        <div 
           className="flex gap-4 items-center flex-row"
         >
           <a
             className="
+              relative
+              z-20
               rounded-full border border-solid border-black/[.08] dark:border-white/[.145] 
               transition-colors flex items-center justify-center 
               hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] 
@@ -52,11 +54,11 @@ export default function Hero() {
               className="invert dark:invert-0 mr-2"
               src="/github.svg"
               alt="GitHub"
-              width={20}                             // 固定图标大小
+              width={20}
               height={20}
-              sizes="20px"                          // 固定尺寸
+              sizes="20px"
             />
-            GitHub
+            <span className="relative z-20">GitHub</span>
           </a>
           <a
             className="
@@ -82,7 +84,7 @@ export default function Hero() {
             />
             View Resume
           </a>
-        </AnimatedText>
+        </div>
       </main>
 
       <AnimatedText 
