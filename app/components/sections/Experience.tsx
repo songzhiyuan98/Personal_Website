@@ -53,8 +53,8 @@ export default function Experience() {
         <GradientBackground 
           sectionId="experience"
           gradientColors={{
-            start: '#818CF8',
-            end: '#6366F1'
+            start: '#7C3AED',  // 浅紫罗兰
+            end: '#5B21B6'     // 深紫罗兰
           }}
         />
 
@@ -64,7 +64,7 @@ export default function Experience() {
           </h1>
         </AnimatedText>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 relative z-10 max-w-6xl w-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 relative z-0 max-w-6xl w-full">
           {experiences.map((experience) => (
             <div key={experience.id}>
               <AnimatedText>

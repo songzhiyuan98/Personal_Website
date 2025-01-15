@@ -72,6 +72,14 @@ export default function Hero() {
             href="/resume.pdf"
             target="_blank"
           >
+            <Image
+              className="dark:invert mr-2"
+              src="/resume.svg"
+              alt="Resume"
+              width={20}
+              height={20}
+              sizes="20px"
+            />
             View Resume
           </a>
         </AnimatedText>
@@ -109,20 +117,6 @@ export default function Hero() {
             height={16}
           />
           LinkedIn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="/projects"
-        >
-          <Image
-            aria-hidden
-            className="dark:invert"
-            src="/folder.svg"
-            alt="Projects"
-            width={16}
-            height={16}
-          />
-          Projects
         </a>
       </AnimatedText>
     </section>

@@ -37,11 +37,11 @@ const projects: Project[] = [
   },
   {
     id: 5,
-    title: "个人网站模板系统",
-    description: "开发了一个灵活的个人网站模板系统，分别针对求职者和科研人员提供了不同版本，包含新手引导、内容管理和主题定制功能。",
-    period: "2025.01 - 2025.02",
+    title: "Portfolio Website Template System",
+    description: "Developed a flexible portfolio website template system with different versions for job seekers and researchers, featuring onboarding guides, content management, and theme customization.",
+    period: "2025.01 - 2025.02", 
     image: "/pw-temp/home.png",
-    skills: ["Next.js", "React", "TypeScript", "Redux Toolkit"],
+    skills: ["Next.js", "Tailwind CSS", "TypeScript"],
     link: "https://portfolio-template.vercel.app"
   }
 ];
@@ -62,8 +62,8 @@ export default function Projects() {
         <GradientBackground 
           sectionId="projects"
           gradientColors={{
-            start: '#F472B6',
-            end: '#EC4899'
+            start: '#F43F5E',  // 浅玫红
+            end: '#BE123C'     // 深玫红
           }}
         />
 
@@ -73,7 +73,7 @@ export default function Projects() {
           </h1>
         </AnimatedText>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 relative z-10 max-w-6xl w-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 relative z-0 max-w-6xl w-full">
           {projects.map((project) => (
             <div key={project.id}>
               <AnimatedText>
@@ -94,7 +94,7 @@ export default function Projects() {
                     cursor-pointer
                   "
                 >
-                  <div className="relative w-full h-64 mb-4">
+                  <div className="relative w-full h-72 mb-4">
                     <Image
                       src={project.image}
                       alt={project.title}
