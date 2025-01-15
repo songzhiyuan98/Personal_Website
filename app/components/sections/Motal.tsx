@@ -81,18 +81,18 @@ export default function ExperienceModal({
         className="
           relative w-full max-w-[1000px] max-h-[90vh] overflow-auto
           bg-gradient-to-br from-white/80 to-white/70 
-          dark:from-black/80 dark:to-black/70
+          dark:from-black/90 dark:to-black/85
           backdrop-blur-xl
           rounded-2xl
-          border border-white/20 dark:border-white/10
+          border border-white/20 dark:border-white/15
           shadow-[0_8px_32px_rgba(0,0,0,0.1)]
-          dark:shadow-[0_8px_32px_rgba(0,0,0,0.3)]
+          dark:shadow-[0_8px_32px_rgba(0,0,0,0.4)]
           transition-all duration-300
           p-6 sm:p-8 md:p-10
           scrollbar-thin scrollbar-track-transparent 
           scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-700
           hover:shadow-[0_12px_48px_rgba(0,0,0,0.15)]
-          dark:hover:shadow-[0_12px_48px_rgba(0,0,0,0.4)]
+          dark:hover:shadow-[0_12px_48px_rgba(0,0,0,0.5)]
         "
         onClick={e => e.stopPropagation()}
       >
