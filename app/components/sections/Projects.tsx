@@ -94,7 +94,7 @@ export default function Projects() {
                     cursor-pointer
                   "
                 >
-                  <div className="relative w-full h-72 mb-4">
+                  <div className="relative w-full h-48 md:h-72 mb-4">
                     <Image
                       src={project.image}
                       alt={project.title}
