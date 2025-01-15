@@ -32,7 +32,7 @@ export default function Hero() {
           </p>
         </AnimatedText>
 
-        <div 
+        <AnimatedText 
           className="flex gap-4 items-center flex-row"
         >
           <a
@@ -62,8 +62,10 @@ export default function Hero() {
           </a>
           <a
             className="
+              relative
+              z-20
               rounded-full border border-solid border-black/[.08] dark:border-white/[.145] 
-              transition-colors flex items-center justify-center 
+              transition-colors flex items-center justify-center
               hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] 
               hover:border-transparent 
               h-12                                   // 固定高度
@@ -84,14 +86,14 @@ export default function Hero() {
             />
             View Resume
           </a>
-        </div>
+        </AnimatedText>
       </main>
 
       <AnimatedText 
         className="row-start-3 flex gap-6 flex-wrap items-center justify-center"
       >
         <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
+          className="flex items-center gap-2 hover:underline hover:underline-offset-4 relative z-20"
           href="mailto:songzhiyuan98@gmail.com"
         >
           <Image
@@ -105,7 +107,7 @@ export default function Hero() {
           Email Me
         </a>
         <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
+          className="flex items-center gap-2 hover:underline hover:underline-offset-4 relative z-20"
           href="https://www.linkedin.com/in/zhiyuan-song-761651217/"
           target="_blank"
           rel="noopener noreferrer"
