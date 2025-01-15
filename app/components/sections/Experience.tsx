@@ -96,10 +96,14 @@ export default function Experience() {
                       />
                     </div>
                     
-                    <div>
-                      <h2 className="text-2xl font-semibold">
+                    <div className="flex-1">
+                      <h3 className="
+                        text-base sm:text-lg md:text-xl  /* 移动端16px, sm:18px, md:20px */
+                        font-bold 
+                        mb-1
+                      ">
                         {experience.title}
-                      </h2>
+                      </h3>
                       
                       <p className="text-base text-gray-600 dark:text-gray-400">
                         {experience.company}

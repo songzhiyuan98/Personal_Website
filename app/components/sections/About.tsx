@@ -14,10 +14,10 @@ export default function About() {
           <AnimatedText>
             <div className="space-y-4">
               <p className="text-lg text-foreground/80 leading-relaxed">
-                Hi, I'm Zhiyuan Song, currently a junior studying Computer Science at UCSC, aspiring to become a Software Development Engineer.
+                Hi, I'm Zhiyuan Song, a junior Computer Science major at UCSC with a strong passion for software development. My goal is to become a Software Development Engineer, where I can contribute to building impactful and scalable solutions.
               </p>
               <p className="text-lg text-foreground/80 leading-relaxed">
-                I specialize in full-stack development, proficient in technologies like React, Node.js, and MongoDB. I've developed multiple scalable and user-friendly web applications. I'm passionate about solving complex problems and creating intuitive digital experiences.
+                I specialize in full-stack development with hands-on experience in React, Node.js, and MongoDB. I've designed and developed multiple user-centric web applications that prioritize scalability, performance, and intuitive user experiences. My projects reflect my problem-solving skills and attention to detail in creating seamless digital solutions.
               </p>
             </div>
           </AnimatedText>
@@ -26,7 +26,7 @@ export default function About() {
             <div className="space-y-4">
               <h2 className="text-2xl font-semibold">Personal Interests</h2>
               <p className="text-lg text-foreground/80 leading-relaxed">
-                Beyond programming, I enjoy exploring the world of anime, playing table tennis, experimenting with cocktail mixing, and studying new web technologies.
+              Outside of coding, I enjoy exploring anime, playing table tennis, mixing creative cocktails, and diving into the latest advancements in web technologies.
               </p>
             </div>
           </AnimatedText>
@@ -35,7 +35,7 @@ export default function About() {
             <div className="space-y-4">
               <h2 className="text-2xl font-semibold">Career Goals</h2>
               <p className="text-lg text-foreground/80 leading-relaxed">
-                I'm actively seeking Software Development Engineer internship opportunities, hoping to put my skills into practice and gain real-world experience in the industry. I believe my technical abilities and enthusiasm for learning can bring value to the team.
+                I'm actively seeking internship opportunities as a Software Development Engineer to further hone my skills and gain hands-on experience in the industry. I am eager to bring my technical expertise, problem-solving mindset, and passion for learning to a dynamic team.
               </p>
             </div>
           </AnimatedText>
