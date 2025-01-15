@@ -3,7 +3,6 @@
 import { useState } from 'react'
 import AnimatedText from "../common/AnimatedText"
 import { motion } from "framer-motion"
-import GradientBackground from "../common/GradientBackground"
 
 interface CourseItem {
   date: string
