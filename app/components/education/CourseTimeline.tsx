@@ -81,7 +81,6 @@ const courses: CourseItem[] = [
 
 export default function CourseTimeline() {
   const [showAll, setShowAll] = useState(false)
-  const timelineRef = useRef<HTMLDivElement>(null)
   const displayedCourses = showAll ? courses : courses.slice(0, 5)
 
   const handleCollapse = () => {
