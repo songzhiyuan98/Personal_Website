@@ -37,10 +37,10 @@ export default function ExperienceModal({
 }) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   
-  const experience = experienceId === 1 ? labsExperience : 
-                    experienceId === 2 ? churchExperience : 
-                    experienceId === 3 ? animeHubExperience : 
-                    experienceId === 4 ? portfolioExperience : 
+  const experience = experienceId === 4 ? labsExperience : 
+                    experienceId === 5 ? churchExperience : 
+                    experienceId === 1 ? animeHubExperience : 
+                    experienceId === 2 ? portfolioExperience : 
                     portfolioTemplateExperience;
 
   useEffect(() => {

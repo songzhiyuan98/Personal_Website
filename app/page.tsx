@@ -19,6 +19,8 @@ export default function Home() {
         <Hero />    
         <About />
         <MySkills />
+        <Experience />
+        <Projects />
         <section id="education" className="relative">
           <Box sx={{ 
             display: 'flex', 
@@ -30,8 +32,6 @@ export default function Home() {
             <CourseTimeline />
           </Box>
         </section>
-        <Projects />
-        <Experience />
       </main>
     </>
   )
