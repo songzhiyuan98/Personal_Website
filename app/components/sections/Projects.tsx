@@ -4,10 +4,9 @@ import { useState, useRef, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import Image from 'next/image'
-import Link from 'next/link'
 import ExperienceModal from './Motal'
-import AnimatedText from '../common/AnimatedText'
-import GradientBackground from '../common/GradientBackground'
+
+
 type Project = {
   id: number
   title: string

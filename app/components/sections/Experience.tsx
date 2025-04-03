@@ -32,14 +32,12 @@ const experiences: Experience[] = [
 ];
 
 export default function Experience() {
-  const [cursorVisible, setCursorVisible] = useState(true);
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [modalOpen, setModalOpen] = useState(false);
-  const [selectedExperienceId, setSelectedExperienceId] = useState<number | null>(null);
-  const [isAnimating, setIsAnimating] = useState(false);
-  const [labModalOpen, setLabModalOpen] = useState(false);
-  const [churchModalOpen, setChurchModalOpen] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
+  const [cursorVisible, setCursorVisible] = useState(true)
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const [isAnimating, setIsAnimating] = useState(false)
+  const [labModalOpen, setLabModalOpen] = useState(false)
+  const [churchModalOpen, setChurchModalOpen] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
   
   // 获取当前的工作经历
   const currentExperience = experiences[currentIndex];
