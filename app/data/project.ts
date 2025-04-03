@@ -25,10 +25,10 @@ export type ProjectDetail = {
 
 export const labsExperience: ProjectDetail = {
     id: 1,
-    title: "Interactive Anatomy Visualization Tool",
-    company: "Labs Laboratory | Columbia University",
+    title: "Web Developer Intern",
+    company: "Columbia University AI & Biomedical Lab",
     overview: "Developed a web-based anatomy visualization tool that enables interactive navigation and detailed information display of human organs. The system supports precise localization of 15+ organs, dynamic interaction, and detailed data presentation, providing an intuitive visualization solution for research.",
-    mainImage: "/labs/home.png",
+    mainImage: "../public/labs/home.png",
     link: "https://labs-laboratory.com/medicine/",
     features: [
       {

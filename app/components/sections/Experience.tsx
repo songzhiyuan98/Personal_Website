@@ -3,7 +3,8 @@
 import { useState, useEffect } from 'react'
 import AnimatedText from '../common/AnimatedText'
 import { motion } from 'framer-motion'
-import ExperienceModal from './Motal'
+import ChurchModal from './modal/ChurchModal'
+import LabModal from './modal/LabModal'
 
 type Experience = {
   id: number
@@ -17,16 +18,16 @@ const experiences: Experience[] = [
   {
     id: 4,
     title: "Web Developer Intern",
-    company: "Labs Laboratory | Columbia University",
+    company: "AI & Biomedical Science Lab | Columbia University",
     period: "Dec 2024 – Present",
-    overview: "在哥伦比亚大学实验室担任Web开发实习生，主要负责开发交互式医学可视化工具。通过JavaScript和SVG技术，实现了人体解剖结构的精确可视化和交互功能，为医学研究和教育提供了直观的数字资源。"
+    overview: "As a Web Developer Intern at Columbia University's AI & Biomedical Science Lab, I led the development of a public knowledge portal focused on medical data visualization. I built an interactive anatomical SVG system and a global data access map using D3.js and TopoJSON. I also designed a lightweight backend with Netlify Functions and MongoDB, enabling secure dataset delivery and statistical tracking. My contributions were included in a Nature Aging research submission."
   },
   {
     id: 5,
     title: "Full-Stack Developer Intern & Technical Lead",
     company: "3CCA Church",
     period: "Dec 2024 – Present",
-    overview: "作为3CCA教堂的全栈开发实习生和技术负责人，领导团队重构和开发教堂的官方网站。使用React和Node.js构建现代化前后端架构，通过MongoDB实现数据管理，并利用AWS云服务部署应用，大幅提升了网站性能和用户体验。"
+    overview: "As a Full-Stack Developer Intern and Technical Lead at 3CCA Church, I led the team in refactoring and developing the church's official website. Built a modern frontend and backend architecture using React and Node.js, implemented data management with MongoDB, and deployed the application using AWS cloud services, significantly improving website performance and user experience."
   }
 ];
 
@@ -36,6 +37,9 @@ export default function Experience() {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedExperienceId, setSelectedExperienceId] = useState<number | null>(null);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [labModalOpen, setLabModalOpen] = useState(false);
+  const [churchModalOpen, setChurchModalOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   
   // 获取当前的工作经历
   const currentExperience = experiences[currentIndex];
@@ -65,24 +69,33 @@ export default function Experience() {
     setTimeout(() => setIsAnimating(false), 500);
   };
 
-  // 运行代码，打开模态框
-  const handleRun = () => {
-    setSelectedExperienceId(currentExperience.id);
-    setModalOpen(true);
+  // 修改 handleRun 函数
+  const handleRun = async () => {
+    setIsLoading(true);
+    
+    // 模拟加载动画
+    await new Promise(resolve => setTimeout(resolve, 1500));
+    
+    if (currentExperience.id === 4) {
+      setLabModalOpen(true);
+    } else if (currentExperience.id === 5) {
+      setChurchModalOpen(true);
+    }
+    
+    setIsLoading(false);
   };
 
   return (
     <section id="experience" className="
-      min-h-screen 
-      py-16 px-4 sm:px-6 
-      flex flex-col items-center justify-center
+      min-h-[90vh]
+      px-4 sm:px-6 
+      flex flex-col items-center justify-start
+      pt-4
     ">
       <div className="w-full max-w-4xl mx-auto">
-        <AnimatedText>
-          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12">
-            Experience
-          </h2>
-        </AnimatedText>
+        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-6">
+          Experience
+        </h2>
         
         {/* 代码编辑器导航 */}
         <div className="flex justify-between items-center mb-4">
@@ -102,7 +115,7 @@ export default function Experience() {
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
-            上一个
+            Previous
           </button>
           
           <div className="text-sm text-gray-500 dark:text-gray-400">
@@ -122,7 +135,7 @@ export default function Experience() {
               text-sm
             "
           >
-            下一个
+            Next
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
@@ -234,10 +247,10 @@ export default function Experience() {
                     <span className="text-pink-600 dark:text-pink-400">responsibilities</span>
                     <span className="text-gray-600 dark:text-gray-400">:</span> <span className="text-purple-600 dark:text-purple-400">{`[`}</span>
                   </div>
-                  {currentExperience.overview?.split("。").filter(s => s.trim()).map((sentence, i) => (
+                  {currentExperience.overview?.split(". ").filter(s => s.trim()).map((sentence, i) => (
                     <div key={i} className="leading-6 pl-6">
                       <span className="text-amber-600 dark:text-amber-400">{`"${sentence}"`}</span>
-                      {i < currentExperience.overview!.split("。").filter(s => s.trim()).length - 1 && <span className="text-gray-600 dark:text-gray-400">,</span>}
+                      {i < currentExperience.overview!.split(".").filter(s => s.trim()).length - 1 && <span className="text-gray-600 dark:text-gray-400">,</span>}
                     </div>
                   ))}
                   <div className="leading-6">
@@ -252,7 +265,7 @@ export default function Experience() {
               
               {/* 添加模拟光标 */}
               <div className="mt-6 leading-6">
-                <span className="text-green-600 dark:text-green-400">// 点击 Run 按钮查看更多详情</span>
+                <span className="text-green-600 dark:text-green-400">// Click Run button to view more details</span>
                 <span className={`inline-block w-2 h-5 ml-1 bg-blue-500 ${cursorVisible ? 'opacity-100' : 'opacity-0'} transition-opacity duration-100`}></span>
               </div>
             </div>
@@ -268,18 +281,26 @@ export default function Experience() {
             flex items-center
           ">
             <span className="text-green-600 dark:text-green-400 mr-2">&gt;</span>
-            <span>准备展示 "{currentExperience.title}" 详细信息...</span>
+            {isLoading ? (
+              <div className="flex items-center gap-2">
+                <span className="animate-pulse">Loading experience details</span>
+                <span className="inline-block animate-spin">⚡</span>
+              </div>
+            ) : (
+              <span>Ready to show details for "{currentExperience.title}"...</span>
+            )}
           </div>
         </motion.div>
       </div>
-      
-      {modalOpen && selectedExperienceId && (
-        <ExperienceModal
-          open={modalOpen}
-          onClose={() => setModalOpen(false)}
-          experienceId={selectedExperienceId}
-        />
-      )}
+    
+      <ChurchModal
+        open={churchModalOpen}
+        onClose={() => setChurchModalOpen(false)}
+      />
+      <LabModal
+        open={labModalOpen}
+        onClose={() => setLabModalOpen(false)}
+      />
     </section>
   )
 }

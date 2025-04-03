@@ -17,10 +17,9 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />    
+        <Experience />    
+        <Projects /> 
         <About />
-        <MySkills />
-        <Experience />
-        <Projects />
         <section id="education" className="relative">
           <Box sx={{ 
             display: 'flex', 
@@ -31,7 +30,8 @@ export default function Home() {
             <h1 className="text-4xl font-bold mb-12 text-center">Education</h1>
             <CourseTimeline />
           </Box>
-        </section>
+        </section> 
+        <MySkills /> 
       </main>
     </>
   )

@@ -28,7 +28,7 @@ export default function Hero() {
           className="max-w-2xl text-center sm:text-left"
         >
           <p className="text-foreground/80 leading-relaxed">
-            UCSC Computer Science Junior | Aspiring SDE Intern building robust Full Stack solutions.
+          UCSC Computer Science Junior | Passionate Full Stack Developer currently building robust web apps and exploring the future of AI integration.
           </p>
         </AnimatedText>
 
