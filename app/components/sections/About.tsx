@@ -14,19 +14,22 @@ export default function About() {
           <AnimatedText>
             <div className="space-y-4">
               <p className="text-lg text-foreground/80 leading-relaxed">
-                Hi, I'm Zhiyuan Song, a junior Computer Science major at UCSC with a strong passion for software development. My goal is to become a Software Development Engineer, where I can contribute to building impactful and scalable solutions.
+                Hi, I'm Zhiyuan Song, a Computer Science student at UC Santa Cruz and a full-stack engineer passionate about building high-impact, production-ready software. I enjoy turning ambitious ideas into scalable systems—from clean UI/UX and real-time interactions to robust backend services and cloud deployment.
               </p>
               <p className="text-lg text-foreground/80 leading-relaxed">
-                I specialize in full-stack development with hands-on experience in React, Node.js, and MongoDB. I've designed and developed multiple user-centric web applications that prioritize scalability, performance, and intuitive user experiences. My projects reflect my problem-solving skills and attention to detail in creating seamless digital solutions.
+                I previously worked as a Web Developer / Research Intern at Columbia University, contributing to biomedical research software and data-driven systems supporting active scientific projects. I'm also credited as a co-author on Nature-family research submissions, reflecting my ability to deliver high-quality engineering work in research-grade environments.
+              </p>
+              <p className="text-lg text-foreground/80 leading-relaxed">
+                Technically, I specialize in Next.js/React, TypeScript, Node.js, MongoDB/Firebase, Docker, and modern full-stack architecture. I'm also deeply interested in LLM-powered systems (RAG, prompt engineering, AI integration) and productizing AI into reliable end-to-end workflows.
               </p>
             </div>
           </AnimatedText>
 
           <AnimatedText>
             <div className="space-y-4">
-              <h2 className="text-2xl font-semibold">Personal Interests</h2>
+              <h2 className="text-2xl font-semibold">Research Interests</h2>
               <p className="text-lg text-foreground/80 leading-relaxed">
-              Outside of coding, I enjoy exploring anime, playing table tennis, mixing creative cocktails, and diving into the latest advancements in web technologies.
+                My research interests focus on applying AI models to Biomedical Engineering (BME), particularly in medical imaging and biological aging modeling. I'm excited by research directions such as multi-organ MRI-based representation learning, AI-driven aging clocks, multimodal biomarker modeling, and building systems that translate biomedical AI advances into real-world impact.
               </p>
             </div>
           </AnimatedText>
@@ -35,7 +38,7 @@ export default function About() {
             <div className="space-y-4">
               <h2 className="text-2xl font-semibold">Career Goals</h2>
               <p className="text-lg text-foreground/80 leading-relaxed">
-                I'm actively seeking internship opportunities as a Software Development Engineer to further hone my skills and gain hands-on experience in the industry. I am eager to bring my technical expertise, problem-solving mindset, and passion for learning to a dynamic team.
+                I'm actively seeking full-time Software Engineering opportunities (open to internships as well), where I can contribute to building scalable products, collaborate with strong teams, and push forward both engineering excellence and AI-driven innovation.
               </p>
             </div>
           </AnimatedText>

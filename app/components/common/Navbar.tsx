@@ -5,9 +5,10 @@ import React from 'react'
 
 const navItems = [
   { name: "Home", href: "#home" },
+  { name: "About", href: "#about" },
   { name: "Experience", href: "#experience"},
   { name: "Projects", href: "#projects"},
-  { name: "About", href: "#about" },
+  { name: "Research", href: "#research"},
   { name: "Education", href: "#education" },
   { name: "Skills", href: "#skills"},
 ]

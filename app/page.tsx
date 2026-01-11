@@ -7,9 +7,9 @@ import Navbar from "./components/common/Navbar"
 import MySkills from './components/sections/MySkills'
 import Experience from './components/sections/Experience'
 import { Box } from '@mui/material'
-import Projects from './components/sections/Projects'
+import Projects from "./components/sections/Projects"
 //import Gallery from './components/sections/Gallery'
-//import Research from './components/sections/Research'
+import Research from './components/sections/Research'
 //import TeachingExperience from './components/sections/TeachingExperience'
 export default function Home() {
   return (
@@ -17,9 +17,10 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />    
-        <Experience />    
-        <Projects /> 
         <About />
+        <Experience />    
+        <Projects />
+        <Research />
         <section id="education" className="relative">
           <Box sx={{ 
             display: 'flex', 
@@ -30,7 +31,7 @@ export default function Home() {
             <h1 className="text-4xl font-bold mb-12 text-center">Education</h1>
             <CourseTimeline />
           </Box>
-        </section> 
+        </section>
         <MySkills /> 
       </main>
     </>

@@ -1,173 +1,264 @@
 'use client'
 
-import Image from 'next/image'
-import { useEffect } from 'react'
+import { useState, useEffect } from 'react'
+import { X, ExternalLink, Calendar, FileText, Download } from 'lucide-react'
 
-type Props = {
-  paper: {
-    title: string
-    overview?: string
-    publishDate?: string
-    chartImage?: string
-    pdf?: string
-    ssrn?: string
-  }
+type Publication = {
+  id: number
+  title: string
+  authors: string
+  year: string
+  journal?: string
+  type: 'publication' | 'working'
+  pdf?: string
+  ssrn?: string
+  description?: string
+  citations?: string[]
+  bulletPoints?: string[]
+  overview?: string
+  publishDate?: string
+  chartImage?: string
+}
+
+type ResearchModalProps = {
+  paper: Publication | null
   onClose: () => void
 }
 
-export default function ResearchModal({ paper, onClose }: Props) {
+export default function ResearchModal({ paper, onClose }: ResearchModalProps) {
+  // 阻止背景页面滚动
   useEffect(() => {
-    document.body.style.overflow = 'hidden'
-    return () => {
-      document.body.style.overflow = 'unset'
+    if (paper) {
+      // 保存原始样式
+      const originalStyle = window.getComputedStyle(document.body).overflow
+      // 阻止背景滚动
+      document.body.style.overflow = 'hidden'
+      
+      // 清理函数：恢复原始样式
+      return () => {
+        document.body.style.overflow = originalStyle
+      }
     }
-  }, [])
+  }, [paper])
+
+  if (!paper) return null
 
   return (
-    <div 
-      className="
-        fixed inset-0 
-        bg-black/20 backdrop-blur-sm 
-        z-50 
-        flex items-center justify-center 
-        p-4
-      "
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-md"
       onClick={onClose}
     >
-      <div 
+      <div
         className="
-          relative w-full max-w-[1000px] max-h-[90vh] overflow-auto
-          bg-gradient-to-br from-white/80 to-white/70 
-          dark:from-black/80 dark:to-black/70
-          backdrop-blur-xl
-          rounded-2xl
-          border border-white/20 dark:border-white/10
-          shadow-[0_8px_32px_rgba(0,0,0,0.1)]
-          dark:shadow-[0_8px_32px_rgba(0,0,0,0.3)]
-          transition-all duration-300
-          p-6 sm:p-8 md:p-10
-          scrollbar-thin scrollbar-track-transparent 
-          scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-700
+          relative w-full max-w-4xl max-h-[95vh] 
+          bg-white dark:bg-black/5
+          backdrop-blur-lg
+          rounded-3xl shadow-2xl
+          overflow-y-auto
+          border border-gray-200/30 dark:border-white/30
         "
-        onClick={e => e.stopPropagation()}
+        onClick={(e) => e.stopPropagation()}
       >
-        <div className="space-y-8">
-          <div className="space-y-6">
-            <div className="flex items-center justify-between gap-4 flex-wrap">
-              <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold">
-                {paper.title}
-              </h1>
-              <div className="flex items-center gap-3">
-                {paper.pdf && (
-                  <a
-                    href={paper.pdf}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="
-                      rounded-full border border-solid border-black/[.08] dark:border-white/[.145] 
-                      transition-all flex items-center justify-center 
-                      hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] 
-                      hover:border-transparent 
-                      hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)]
-                      dark:hover:shadow-[0_4px_12px_rgba(0,0,0,0.3)]
-                      h-9 px-4 text-sm
-                      group
-                    "
-                  >
-                    <svg 
-                      width="16" 
-                      height="16" 
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="mr-2 stroke-black dark:stroke-white"
-                    >
-                      <path 
-                        d="M7 10V9C7 6.23858 9.23858 4 12 4C14.7614 4 17 6.23858 17 9V10"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                      />
-                      <path 
-                        d="M12 12V16M5 10H19V20H5V10Z"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                      />
-                    </svg>
-                    <span className="group-hover:translate-x-0.5 transition-transform duration-300">
-                      PDF
-                    </span>
-                  </a>
-                )}
-                {paper.ssrn && (
-                  <a
-                    href={paper.ssrn}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="
-                      rounded-full border border-solid border-black/[.08] dark:border-white/[.145] 
-                      transition-all flex items-center justify-center 
-                      hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] 
-                      hover:border-transparent 
-                      hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)]
-                      dark:hover:shadow-[0_4px_12px_rgba(0,0,0,0.3)]
-                      h-9 px-4 text-sm
-                      group
-                    "
-                  >
-                    <svg 
-                      width="16" 
-                      height="16" 
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="mr-2 stroke-black dark:stroke-white"
-                    >
-                      <path 
-                        d="M12 4H6C4.89543 4 4 4.89543 4 6V18C4 19.1046 4.89543 20 6 20H18C19.1046 20 20 19.1046 20 18V12M12 4L20 12M12 4V12H20"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                    <span className="group-hover:translate-x-0.5 transition-transform duration-300">
-                      SSRN
-                    </span>
-                  </a>
-                )}
+        {/* 头部 - 研究标题和基本信息 */}
+        <div className="relative p-8 border-b border-gray-200/50 dark:border-white/20">
+          {/* 关闭按钮 */}
+          <button
+            onClick={onClose}
+            className="
+              absolute top-4 right-4
+              p-2 rounded-full
+              bg-white/20 backdrop-blur-sm
+              hover:bg-white/30
+              transition-colors duration-200
+              z-10
+            "
+          >
+            <X className="w-5 h-5 text-gray-700 dark:text-gray-300" />
+          </button>
+
+          {/* 研究标题 */}
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 pr-12">
+            {paper.title}
+          </h2>
+
+          {/* 基本信息 */}
+          <div className="space-y-3">
+            <div className="flex items-center gap-4 text-sm text-gray-600 dark:text-gray-400">
+              <div className="flex items-center gap-2">
+                <FileText className="w-4 h-4" />
+                <span className="font-medium">Authors:</span>
+                <span>{paper.authors}</span>
               </div>
             </div>
             
-            {paper.publishDate && (
-              <p className="text-sm text-gray-500 dark:text-gray-400">
-                发布于 {paper.publishDate}
-              </p>
+            <div className="flex items-center gap-4 text-sm text-gray-600 dark:text-gray-400">
+              <div className="flex items-center gap-2">
+                <Calendar className="w-4 h-4" />
+                <span className="font-medium">Year:</span>
+                <span>{paper.year}</span>
+              </div>
+            </div>
+
+            {paper.journal && (
+              <div className="text-sm text-gray-600 dark:text-gray-400">
+                <span className="font-medium">Journal:</span>
+                <span className="ml-2 italic">{paper.journal}</span>
+              </div>
             )}
 
-            {paper.overview && (
-              <p className="
-                text-base sm:text-lg 
-                leading-relaxed 
-                text-gray-600 dark:text-gray-300
-                border-l-4 border-purple-500/30
-                pl-4
-              ">
-                {paper.overview}
-              </p>
+            {paper.description && (
+              <div className="text-sm text-gray-600 dark:text-gray-400">
+                <span className="font-medium">Description:</span>
+                <span className="ml-2">{paper.description}</span>
+              </div>
             )}
           </div>
+        </div>
 
-          {paper.chartImage && (
-            <div className="relative w-full aspect-[16/9] rounded-xl overflow-hidden">
-              <Image
-                src={paper.chartImage}
-                alt="Research visualization"
-                fill
-                className="object-cover"
-              />
-            </div>
+        {/* 内容区域 */}
+        <div className="p-8 space-y-8">
+          {/* 研究概述 */}
+          {paper.overview && (
+            <section>
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4 border-b border-gray-200 dark:border-gray-700 pb-2">
+                Research Overview
+              </h3>
+              <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-base font-medium">
+                {paper.overview}
+              </p>
+            </section>
           )}
+
+          {/* 研究背景 */}
+          {paper.researchBackground && (
+            <section>
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4 border-b border-gray-200 dark:border-gray-700 pb-2">
+                Research Background
+              </h3>
+              <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-base font-medium">
+                {paper.researchBackground}
+              </p>
+            </section>
+          )}
+
+          {/* 研究方法 */}
+          {paper.methodology && (
+            <section>
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4 border-b border-gray-200 dark:border-gray-700 pb-2">
+                Methodology
+              </h3>
+              <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-base font-medium">
+                {paper.methodology}
+              </p>
+            </section>
+          )}
+
+          {/* 核心发现 */}
+          {paper.keyFindings && (
+            <section>
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4 border-b border-gray-200 dark:border-gray-700 pb-2">
+                Key Findings
+              </h3>
+              <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-base font-medium">
+                {paper.keyFindings}
+              </p>
+            </section>
+          )}
+
+          {/* 我的贡献 */}
+          {paper.myContribution && (
+            <section>
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4 border-b border-gray-200 dark:border-gray-700 pb-2">
+                My Contribution
+              </h3>
+              <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-base font-medium">
+                {paper.myContribution}
+              </p>
+            </section>
+          )}
+
+          {/* 研究意义 */}
+          {paper.researchSignificance && (
+            <section>
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4 border-b border-gray-200 dark:border-gray-700 pb-2">
+                Research Significance
+              </h3>
+              <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-base font-medium">
+                {paper.researchSignificance}
+              </p>
+            </section>
+          )}
+
+
+          {/* 引用信息 */}
+          {paper.citations && paper.citations.length > 0 && (
+            <section>
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4 border-b border-gray-200 dark:border-gray-700 pb-2">
+                Citations
+              </h3>
+              <div className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                {paper.citations.map((citation, index) => (
+                  <div key={index} className="mb-3 text-sm">
+                    <span className="text-gray-500 dark:text-gray-400 mr-2 font-bold">[{index + 1}]</span>
+                    <span className="italic">{citation}</span>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
+        </div>
+
+        {/* 底部 - 链接和按钮 */}
+        <div className="p-8 border-t border-gray-200/50 dark:border-white/20">
+          <div className="flex flex-col sm:flex-row gap-4 justify-between items-center">
+            <div className="flex flex-wrap gap-4">
+              {paper.pdf && (
+                <a
+                  href={paper.pdf}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="
+                    inline-flex items-center gap-2
+                    px-4 py-2
+                    bg-gray-900 dark:bg-white
+                    text-white dark:text-black
+                    rounded-lg
+                    text-sm font-medium
+                    hover:bg-gray-800 dark:hover:bg-gray-100
+                    transition-all duration-300
+                    group/btn
+                  "
+                >
+                  <Download className="w-4 h-4 group-hover/btn:scale-110 transition-transform" />
+                  Download PDF
+                </a>
+              )}
+              
+              {paper.ssrn && (
+                <a
+                  href={paper.ssrn}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="
+                    inline-flex items-center gap-2
+                    px-4 py-2
+                    border border-gray-300 dark:border-gray-600
+                    text-gray-700 dark:text-gray-300
+                    rounded-lg
+                    text-sm font-medium
+                    hover:bg-gray-100 dark:hover:bg-gray-800
+                    transition-all duration-300
+                    group/btn
+                  "
+                >
+                  <ExternalLink className="w-4 h-4 group-hover/btn:scale-110 transition-transform" />
+                  View on SSRN
+                </a>
+              )}
+            </div>
+          </div>
         </div>
       </div>
     </div>
   )
-} 
+}

@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cat:*)",
+      "Bash(tree:*)",
+      "Bash(npx tsc:*)",
+      "Bash(sed:*)",
+      "Read(/Users/zhiyuansong/Desktop/Zhiyuan's Folder/github项目/Personal_Website/app/**)",
+      "Read(/Users/zhiyuansong/Desktop/Zhiyuan's Folder/github项目/Personal_Website/app/**)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

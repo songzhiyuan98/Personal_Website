@@ -5,22 +5,28 @@ import { useEffect, useState } from "react"
 
 // 将项目分类并定义样式
 const items: { text: string, type: 'tech' | 'project' | 'interest' }[] = [
-  // 技术关键词
-  { text: "React", type: "tech" },
-  { text: "TypeScript", type: "tech" },
-  { text: "Python", type: "tech" },
-  { text: "Node.js", type: "tech" },
-  { text: "Git", type: "tech" },
-  // 项目关键词
-  { text: "Portfolio", type: "project" },
-  { text: "Web Development", type: "project" },
-  { text: "Animehub", type: "project" },
-  { text: "SDE", type: "project" },
-  // 兴趣关键词
-  { text: "ML/AI", type: "interest" },
-  { text: "Full Stack", type: "interest" },
-  { text: "Computer Science", type: "interest" },
+  // 教育/机构
+  { text: "Computer Science @ UCSC", type: "interest" },
   { text: "UCSC", type: "interest" },
+  { text: "Columbia University AI & Biomedical Science Lab", type: "interest" },
+  // 职位/角色
+  { text: "AI Engineer / ML Engineer", type: "project" },
+  { text: "Full-Stack Developer", type: "project" },
+  { text: "AI Lab / Research Intern", type: "project" },
+  // 全栈技术关键词（最重要的）
+  { text: "React", type: "tech" },
+  { text: "Node.js", type: "tech" },
+  { text: "TypeScript", type: "tech" },
+  // 机器学习关键词
+  { text: "Deep Learning", type: "tech" },
+  { text: "Neural Networks", type: "tech" },
+  // 研究领域
+  { text: "AI + Biomedical Research", type: "tech" },
+  { text: "Biomedical AI", type: "tech" },
+  { text: "Multi-organ MRI", type: "tech" },
+  { text: "Aging Clock / Biological Aging", type: "tech" },
+  // 出版物
+  { text: "Nature / Nature Medicine", type: "interest" },
 ]
 
 interface FloatingItem {

@@ -1,6 +1,5 @@
 'use client'
 
-import { useState } from 'react'
 import AnimatedText from "../common/AnimatedText"
 import { motion } from "framer-motion"
 
@@ -79,19 +78,6 @@ const courses: CourseItem[] = [
 ]
 
 export default function CourseTimeline() {
-  const [showAll, setShowAll] = useState(false)
-  const displayedCourses = showAll ? courses : courses.slice(0, 5)
-
-  const handleCollapse = () => {
-    setShowAll(false)
-    const educationSection = document.getElementById('education')
-    if (educationSection) {
-      const yOffset = -60;
-      const y = educationSection.getBoundingClientRect().top + window.pageYOffset + yOffset
-      window.scrollTo({ top: y, behavior: 'smooth' })
-    }
-  }
-
   return (
     <div className="w-full">
       {/* Timeline container */}
@@ -100,7 +86,7 @@ export default function CourseTimeline() {
         <div className="absolute left-1/2 top-0 w-[2px] h-full bg-neutral-200 dark:bg-neutral-800 z-0" />
         
         {/* Timeline items */}
-        {displayedCourses.map((course, index) => (
+        {courses.map((course, index) => (
           <AnimatedText key={index}>
             <div className={`
               flex items-center gap-4 sm:gap-6 md:gap-8 mb-12 
@@ -152,65 +138,6 @@ export default function CourseTimeline() {
           </AnimatedText>
         ))}
       </div>
-
-      {/* Buttons outside timeline container */}
-      {!showAll && courses.length > 5 && (
-        <AnimatedText>
-          <div className="flex justify-center mt-8">
-            <button
-              onClick={() => setShowAll(true)}
-              className="
-                text-lg
-                text-neutral-600 dark:text-neutral-400
-                p-4
-                transition-transform duration-300
-                hover:scale-110
-                z-0
-                flex items-center gap-2
-              "
-            >
-              Show More
-              <svg 
-                className="w-5 h-5 stroke-black dark:stroke-white" 
-                viewBox="0 0 24 24" 
-                fill="none" 
-                strokeWidth="2"
-              >
-                <path d="M19 9l-7 7-7-7" />
-              </svg>
-            </button>
-          </div>
-        </AnimatedText>
-      )}
-
-      {showAll && (
-        <AnimatedText>
-          <div className="flex justify-center mt-8">
-            <button
-              onClick={handleCollapse}
-              className="
-                text-lg
-                text-neutral-600 dark:text-neutral-400
-                p-4
-                transition-transform duration-300
-                hover:scale-110
-                z-0
-                flex items-center gap-2
-              "
-            >
-              Show Less
-              <svg 
-                className="w-5 h-5 stroke-black dark:stroke-white" 
-                viewBox="0 0 24 24" 
-                fill="none" 
-                strokeWidth="2"
-              >
-                <path d="M5 15l7-7 7 7" />
-              </svg>
-            </button>
-          </div>
-        </AnimatedText>
-      )}
     </div>
   )
 }
