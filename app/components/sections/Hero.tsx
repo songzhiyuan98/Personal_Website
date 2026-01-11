@@ -1,14 +1,10 @@
 'use client'
 
 import Image from "next/image"
-import { motion, useScroll, useTransform } from "framer-motion"
 import AnimatedText from "../common/AnimatedText"
 import FloatingElements from "../common/FloatingElements"
 
 export default function Hero() {
-  const { scrollY } = useScroll()
-  const scale = useTransform(scrollY, [0, 100], [1, 0.3])
-  const opacity = useTransform(scrollY, [0, 100], [1, 0.8])
 
   return (
     <section id="home" className="relative grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">

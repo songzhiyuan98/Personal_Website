@@ -1,7 +1,7 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-import { X, ExternalLink, Github, Calendar, Code, Building, Zap, Users, Target } from 'lucide-react'
+import { useEffect } from 'react'
+import { X, ExternalLink, Github, Calendar, Code } from 'lucide-react'
 import Image from 'next/image'
 
 type Project = {

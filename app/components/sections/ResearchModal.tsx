@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import { X, ExternalLink, Calendar, FileText, Download } from 'lucide-react'
 
 type Publication = {
@@ -18,6 +18,11 @@ type Publication = {
   overview?: string
   publishDate?: string
   chartImage?: string
+  researchBackground?: string
+  methodology?: string
+  keyFindings?: string
+  myContribution?: string
+  researchSignificance?: string
 }
 
 type ResearchModalProps = {

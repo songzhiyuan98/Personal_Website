@@ -1,8 +1,7 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-import { X, ExternalLink, MapPin, Calendar, Building2, Users, Target, CheckCircle, Star, Award, Code } from 'lucide-react'
-import Image from 'next/image'
+import { useEffect } from 'react'
+import { X, MapPin, Calendar, Code } from 'lucide-react'
 
 type Experience = {
   id: number

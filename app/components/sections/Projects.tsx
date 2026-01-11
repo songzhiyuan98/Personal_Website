@@ -1,6 +1,5 @@
 'use client'
 
-import { ExternalLink, Github } from 'lucide-react'
 import AnimatedText from '../common/AnimatedText'
 
 
@@ -487,7 +486,7 @@ export default function Projects() {
         </AnimatedText>
 
         <div className="space-y-12">
-          {projects.map((project, index) => (
+          {projects.map((project) => (
             <AnimatedText key={project.id}>
               <div className="
                 pb-4 sm:pb-6 border-b border-black/10 dark:border-white/10

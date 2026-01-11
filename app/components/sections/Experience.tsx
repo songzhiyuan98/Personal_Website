@@ -153,7 +153,7 @@ export default function Experience() {
         </AnimatedText>
 
         <div className="space-y-12">
-          {experiences.map((experience, index) => (
+          {experiences.map((experience) => (
             <AnimatedText key={experience.id}>
               <div className="
                 pb-4 sm:pb-6 border-b border-black/10 dark:border-white/10
