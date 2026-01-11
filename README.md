@@ -1,36 +1,133 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Personal Portfolio Website
+
+A modern, responsive personal portfolio website showcasing my work as a Full-Stack Developer & AI/ML Engineer. Built with Next.js and deployed on Vercel.
+
+🌐 **Live Site**: [https://www.zhiyuansong.dev/](https://www.zhiyuansong.dev/)
+
+## Overview
+
+This is my active personal portfolio website that presents my professional experience, projects, research publications, technical skills, and educational background. The site features a clean, minimalist design with smooth animations and a responsive layout optimized for all devices.
+
+## Features
+
+- **Modern UI/UX**: Clean, minimalist design with smooth animations powered by Framer Motion
+- **Responsive Design**: Fully responsive layout that works seamlessly across desktop, tablet, and mobile devices
+- **Dark Mode Support**: System-level adaptive dark mode (follows system preferences)
+- **Performance Optimized**: Built with Next.js for optimal performance and SEO
+- **Sections**:
+  - Hero section with animated background tags
+  - About me with research interests and career goals
+  - Professional experience
+  - Featured projects with detailed descriptions
+  - Research publications (Nature & Nature Medicine)
+  - Education timeline
+  - Technical skills showcase
+
+## Tech Stack
+
+### Core
+- **Framework**: [Next.js](https://nextjs.org/) 15.0.6 (App Router)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **UI Library**: [React](https://react.dev/) 18.2.0
+
+### Styling & Animation
+- **CSS Framework**: [Tailwind CSS](https://tailwindcss.com/)
+- **Animation**: [Framer Motion](https://www.framer.com/motion/)
+- **Additional**: GSAP for advanced animations
+
+### UI Components
+- [Material-UI](https://mui.com/) (MUI)
+- [Headless UI](https://headlessui.com/)
+- [Lucide React](https://lucide.dev/) (Icons)
+- [React Icons](https://react-icons.github.io/react-icons/)
+
+### Deployment
+- **Platform**: [Vercel](https://vercel.com/)
+- **Domain**: [zhiyuansong.dev](https://www.zhiyuansong.dev/)
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
+- Node.js 18.x or higher
+- npm, yarn, pnpm, or bun
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/songzhiyuan98/Personal_Website.git
+cd Personal_Website
+```
+
+2. Install dependencies:
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+```
+
+3. Run the development server:
 ```bash
 npm run dev
 # or
 yarn dev
 # or
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+Personal_Website/
+├── app/
+│   ├── components/          # React components
+│   │   ├── common/         # Shared components (Navbar, AnimatedText, etc.)
+│   │   ├── education/      # Education timeline component
+│   │   ├── sections/       # Page sections (Hero, About, Experience, etc.)
+│   │   └── providers/      # Context providers
+│   ├── data/               # Static data (projects, experiences, etc.)
+│   ├── fonts/              # Custom fonts (Geist)
+│   ├── globals.css         # Global styles
+│   ├── layout.tsx          # Root layout
+│   └── page.tsx            # Home page
+├── public/                 # Static assets (images, icons, PDFs)
+└── package.json            # Dependencies and scripts
+```
 
-## Learn More
+## Available Scripts
 
-To learn more about Next.js, take a look at the following resources:
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run start` - Start production server
+- `npm run lint` - Run ESLint
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deployment
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+This project is deployed on [Vercel](https://vercel.com/), which provides:
+- Automatic deployments on push to main branch
+- Global CDN for fast content delivery
+- SSL certificates
+- Preview deployments for pull requests
 
-## Deploy on Vercel
+The live site is available at: [https://www.zhiyuansong.dev/](https://www.zhiyuansong.dev/)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## License
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is private and proprietary. All rights reserved.
+
+## Contact
+
+- **Email**: songzhiyuan98@gmail.com
+- **Website**: [https://www.zhiyuansong.dev/](https://www.zhiyuansong.dev/)
+- **LinkedIn**: [Zhiyuan Song](https://www.linkedin.com/in/zhiyuan-song-761651217/)
+- **Google Scholar**: [Zhiyuan Song](https://scholar.google.com/citations?user=wh3s5WkAAAAJ&hl=zh-CN)
+- **GitHub**: [@songzhiyuan98](https://github.com/songzhiyuan98)
+
+---
+
+Built with ❤️ using Next.js and TypeScript
