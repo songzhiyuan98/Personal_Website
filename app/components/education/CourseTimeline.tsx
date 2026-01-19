@@ -11,69 +11,119 @@ interface CourseItem {
 
 const courses: CourseItem[] = [
   {
-    date: "2022 - Now",
+    date: "2022 - 2026",
     title: "University of California, Santa Cruz",
-    description: "Computer Science Major | GPA: 3.84"
+    description: "B.S. in Computer Science"
   },
   {
     date: "Fall 2022",
     title: "CSE 20: Beginning Python",
-    description: "Data Types | Control Flow | OOP"
+    description: "Variables & Data Types | Control Flow | Functions & OOP"
+  },
+  {
+    date: "Fall 2022",
+    title: "MATH 19A: Calculus for Science",
+    description: "Limits & Derivatives | Applications of Differentiation"
   },
   {
     date: "Winter 2023",
-    title: "CSE 30: Prog Abs Python",
-    description: "Data Structures | Algorithm Design | OOP"
+    title: "CSE 30: Programming Abstractions in Python",
+    description: "Data Structures | Recursion | Algorithm Design"
   },
   {
     date: "Winter 2023",
-    title: "CMPM 80K: Game Design Fundamentals",
-    description: "Game Design Principles | Game Analysis | Gdevelop 5"
+    title: "MATH 19B: Calculus for Science",
+    description: "Integration | Sequences & Series | Taylor Series"
   },
   {
     date: "Spring 2023",
-    title: "CSE 13S: Computer Systems & C Programming",
-    description: "C Programming | Command Line & Shell Programming | Debugging & Source Control"
+    title: "CSE 12: Computer Systems & Assembly Language",
+    description: "RISC-V Assembly | Memory Organization | I/O Systems"
+  },
+  {
+    date: "Spring 2023",
+    title: "MATH 23A: Vector Calculus",
+    description: "Vectors & Matrices | Partial Derivatives | Multiple Integrals"
   },
   {
     date: "Fall 2023",
-    title: "MATH 21: Linear Algebra",
-    description: "Linear Equations | Matrices & Determinants | Vector Spaces & Linear Transformations"
+    title: "CSE 13S: Computer Systems & C Programming",
+    description: "C Programming | Unix Tools | Memory Management | Debugging"
+  },
+  {
+    date: "Fall 2023",
+    title: "CMPM 80K: Foundations of Game Design",
+    description: "Game Mechanics | Player Experience | Prototyping"
   },
   {
     date: "Winter 2024",
     title: "CSE 16: Applied Discrete Mathematics",
-    description: "Sets, Functions & Relations | Graph Theory | Counting Methods & Recurrence Relations"
+    description: "Logic & Proofs | Graph Theory | Combinatorics"
+  },
+  {
+    date: "Winter 2024",
+    title: "MATH 21: Linear Algebra",
+    description: "Matrices | Vector Spaces | Eigenvalues & Eigenvectors"
   },
   {
     date: "Spring 2024",
-    title: "CSE 101: Algorithms & Abstract Data Structures",
-    description: "Abstract Data Structures | Algorithm Design & Analysis | C/C++ Programming Practice"
+    title: "CSE 101: Data Structures & Algorithms",
+    description: "Trees & Graphs | Sorting | Hashing | Algorithm Analysis"
   },
   {
     date: "Spring 2024",
-    title: "STAT 131: Intro Probability Theory",
-    description: "Bayes Theorem | Central Limit Theorem | Markov Chains"
+    title: "STAT 131: Introduction to Probability Theory",
+    description: "Random Variables | Distributions | Central Limit Theorem"
   },
   {
     date: "Fall 2024",
-    title: "CSE 40: Intro to Machine Learning",
-    description: "Data Cleaning | Data Analysis | Optimization Methods | Data Visualization"
+    title: "CSE 40: Machine Learning Basics",
+    description: "Supervised Learning | Classification | Regression | Model Evaluation"
   },
   {
     date: "Winter 2025",
     title: "CSE 102: Introduction to Analysis of Algorithms",
-    description: "RAM Computation Model | Divide & Conquer | Branch & Bound | Dynamic Programming"
+    description: "Divide & Conquer | Dynamic Programming | NP-Completeness"
   },
   {
     date: "Winter 2025",
     title: "CSE 120: Computer Architecture",
-    description: "Processor Design | Memory Hierarchy | Parallel Computing"
+    description: "Pipelining | Cache Design | Memory Hierarchy | Parallelism"
   },
   {
     date: "Winter 2025",
-    title: "CSE 130: Computer Systems Design Principles",
-    description: "Concurrency & Synchronization | Layered Design | System Performance Optimization"
+    title: "CSE 130: Principles of Computer System Design",
+    description: "Concurrency | Naming | Virtualization | Distributed Systems"
+  },
+  {
+    date: "Spring 2025",
+    title: "CSE 115A: Introduction to Software Engineering",
+    description: "Agile Development | Testing | Version Control | Team Collaboration"
+  },
+  {
+    date: "Spring 2025",
+    title: "CSE 150: Introduction to Computer Networks",
+    description: "TCP/IP | Routing | Network Security | Application Protocols"
+  },
+  {
+    date: "Summer 2025",
+    title: "CMPM 146: Game AI",
+    description: "Pathfinding | Behavior Trees | Monte Carlo Tree Search"
+  },
+  {
+    date: "Fall 2025",
+    title: "CSE 140: Artificial Intelligence",
+    description: "Search Algorithms | Constraint Satisfaction | Probabilistic Reasoning"
+  },
+  {
+    date: "Fall 2025",
+    title: "CSE 142: Machine Learning",
+    description: "Neural Networks | Deep Learning | Optimization | Regularization"
+  },
+  {
+    date: "Fall 2025",
+    title: "CSE 180: Database Systems I",
+    description: "SQL | Relational Model | Query Optimization | Transactions"
   }
 ]
 

@@ -27,14 +27,6 @@ export default function Hero() {
         </AnimatedText>
 
         <AnimatedText 
-          className="max-w-2xl text-center sm:text-left"
-        >
-          <p className="text-foreground/80 leading-relaxed">
-          Computer Science student at UCSC | Full-Stack Developer and AI/ML Engineer researching biomedical AI at Columbia University, with publications in Nature Medicine.
-          </p>
-        </AnimatedText>
-
-        <AnimatedText 
           className="flex gap-4 items-center flex-row flex-wrap"
         >
           <a

@@ -7,26 +7,29 @@ import AnimatedText from "../common/AnimatedText"
 const technologies = {
   frontend: [
     { name: 'React', icon: '/skills/react.svg' },
-    { name: 'Redux', icon: '/skills/redux.svg' },
+    { name: 'Next.js', icon: '/skills/nextjs.svg' },
     { name: 'TypeScript', icon: '/skills/typescript.svg' },
-    { name: 'Material-UI', icon: '/skills/material-ui.svg' },
-    { name: 'Ant Design', icon: '/skills/antd.svg' },
+    { name: 'Redux', icon: '/skills/redux.svg' },
+    { name: 'Tailwind CSS', icon: '/skills/tailwindcss.svg' },
+    { name: 'Framer Motion', icon: '/skills/framer-motion.svg' },
   ],
   backend: [
     { name: 'Node.js', icon: '/skills/nodejs.svg' },
     { name: 'Express.js', icon: '/skills/express.svg' },
-    { name: 'Socket.io', icon: '/skills/socketio.svg' },
-    { name: 'JWT', icon: '/skills/jwt.svg' },
+    { name: 'FastAPI', icon: '/skills/fastapi.svg' },
+    { name: 'Prisma', icon: '/skills/prisma.svg' },
+    { name: 'Stripe', icon: '/skills/stripe.svg' },
   ],
   infrastructure: [
+    { name: 'PostgreSQL', icon: '/skills/postgresql.svg' },
     { name: 'MongoDB', icon: '/skills/mongodb.svg' },
     { name: 'Redis', icon: '/skills/redis.svg' },
-    { name: 'Mongoose', icon: '/skills/mongoose.svg' },
-    { name: 'Netlify', icon: '/skills/netlify.svg' },
-    { name: 'Heroku', icon: '/skills/heroku.svg' },
+    { name: 'Docker', icon: '/skills/docker.svg' },
     { name: 'Vercel', icon: '/skills/vercel.svg' },
+    { name: 'AWS', icon: '/skills/aws.svg' },
   ],
   datascience: [
+    { name: 'PyTorch', icon: '/skills/pytorch.svg' },
     { name: 'NumPy', icon: '/skills/numpy.svg' },
     { name: 'Pandas', icon: '/skills/pandas.svg' },
     { name: 'Scikit-learn', icon: '/skills/scikit-learn.svg' },
@@ -38,16 +41,12 @@ const technologies = {
     { name: 'GitHub', icon: '/skills/github.svg' },
     { name: 'Linux', icon: '/skills/linux.svg' },
     { name: 'VS Code', icon: '/skills/vscode.svg' },
-    { name: 'PyCharm', icon: '/skills/pycharm.svg' },
   ],
   languages: [
     { name: 'JavaScript', icon: '/skills/javascript.svg' },
     { name: 'Python', icon: '/skills/python.svg' },
     { name: 'C', icon: '/skills/c.svg' },
     { name: 'C++', icon: '/skills/cpp.svg' },
-    { name: 'HTML5', icon: '/skills/html5.svg' },
-    { name: 'CSS3', icon: '/skills/css3.svg' },
-    { name: 'R', icon: '/skills/r.svg' },
   ]
 }
 
